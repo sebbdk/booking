@@ -2,7 +2,7 @@
 * @Author: sebb
 * @Date:   2015-01-08 19:35:28
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-01-08 20:34:02
+* @Last Modified time: 2015-01-18 20:42:40
 */
 
 (function($) {
@@ -22,42 +22,69 @@
 
 	}
 
+/**
+ * Creates a graph grouped on minutes
+ * @param  {Function} callback [description]
+ * @return {[type]}            [description]
+ */
 	function getData(callback) {
-		$.get('/indi/points.json', function(rawData) {
+		$.get('/points.json', function(rawData) {
 			var wipData = {
 				labels:[],
 				datasets:[
 					{
-			            label: "My First dataset",
-			            fillColor: "rgba(220,220,220,0.2)",
-			            strokeColor: "rgba(220,220,220,1)",
-			            pointColor: "rgba(220,220,220,1)",
-			            pointStrokeColor: "#fff",
-			            pointHighlightFill: "#fff",
-			            pointHighlightStroke: "rgba(220,220,220,1)",
-			            data: []	
+						label: "My First dataset",
+						fillColor: "rgba(220,220,220,0.2)",
+						strokeColor: "rgba(220,220,220,1)",
+						pointColor: "rgba(220,220,220,1)",
+						pointStrokeColor: "#fff",
+						pointHighlightFill: "#fff",
+						pointHighlightStroke: "rgba(220,220,220,1)",
+						data: [
+							10, 10, 10, 10
+						]	
 					}
 				]
 			};
 
 			var labs = [];
+
+			for(var t = 0; t < 24;t++) {
+				wipData.labels.push('Hour ' + t);
+				labs.push(t);
+				wipData.datasets[0].data[t] = 0;
+			}
+
 			$.each(rawData.data, function(index, value) {
-				console.log(value);
-				var minute = new Date(value.Point.created).getMinutes();
+			//	var group = new Date(value.Point.created).getMinutes();
+				var group = roundMinutes(new Date(value.Point.created)).getHours();
 
 
-				if(labs.indexOf(minute) === -1) {
-					wipData.labels.push("");
-					labs.push(minute);
+				
+				if(labs.indexOf(group) === -1) {
+					wipData.labels.push(group);
+					labs.push(group);
 				}
 
-				var index = labs.indexOf(minute)
+				var index = labs.indexOf(group);
 
-				wipData.datasets[0].data[index] = wipData.datasets[0].data[index] ? wipData.datasets[0].data[index]+1:1;
+				console.log(index);
+
+				var current = wipData.datasets[0].data[index];
+
+				wipData.datasets[0].data[index] = current ? current+1:1;
 			});
 
 			callback(wipData);
 		});
+	}
+
+	function roundMinutes(date) {
+
+		date.setHours(date.getHours() + Math.round(date.getMinutes()/60));
+		date.setMinutes(0);
+
+		return date;
 	}
 
 })(jQuery);
