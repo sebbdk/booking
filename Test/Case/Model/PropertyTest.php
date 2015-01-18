@@ -1,11 +1,11 @@
 <?php
-App::uses('Point', 'Model');
+App::uses('Property', 'Model');
 
 /**
- * Point Test Case
+ * Property Test Case
  *
  */
-class PointTest extends CakeTestCase {
+class PropertyTest extends CakeTestCase {
 
 /**
  * Fixtures
@@ -13,8 +13,8 @@ class PointTest extends CakeTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.point',
 		'app.property',
+		'app.point',
 		'app.session'
 	);
 
@@ -25,7 +25,7 @@ class PointTest extends CakeTestCase {
  */
 	public function setUp() {
 		parent::setUp();
-		$this->Point = ClassRegistry::init('Point');
+		$this->Property = ClassRegistry::init('Property');
 	}
 
 /**
@@ -34,7 +34,7 @@ class PointTest extends CakeTestCase {
  * @return void
  */
 	public function tearDown() {
-		unset($this->Point);
+		unset($this->Property);
 
 		parent::tearDown();
 	}
