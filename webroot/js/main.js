@@ -2,7 +2,7 @@
 * @Author: sebb
 * @Date:   2015-01-08 19:35:28
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-01-18 20:42:40
+* @Last Modified time: 2015-01-18 20:49:45
 */
 
 (function($) {
@@ -10,7 +10,6 @@
 	$(document).on('ready', init);
 
 	function init() {
-
 		getData(function(data) {
 			var ctx = document.getElementById("myChart").getContext("2d");
 			var myNewChart = new Chart(ctx).Line(data, {
@@ -19,7 +18,6 @@
 				showLabels:false
 			});
 		});
-
 	}
 
 /**
