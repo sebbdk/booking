@@ -1,0 +1,406 @@
+2015-01-08 19:24:45 Error: Fatal Error (1): Trait 'CrudControllerTrait' not found in [/Users/sebb/sites/indi/Controller/AppController.php, line 26]
+2015-01-08 19:24:45 Error: [FatalErrorException] Trait 'CrudControllerTrait' not found
+Request URL: /indi/
+Stack Trace:
+#0 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Trait 'CrudCont...', '/Users/sebb/sit...', 26)
+#1 [internal function]: ErrorHandler::handleError(1, 'Trait 'CrudCont...', '/Users/sebb/sit...', 26, Array)
+#2 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Trait 'CrudCont...', '/Users/sebb/sit...', 26, Array)
+#3 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-08 19:24:46 Error: Fatal Error (1): Trait 'CrudControllerTrait' not found in [/Users/sebb/sites/indi/Controller/AppController.php, line 26]
+2015-01-08 19:24:46 Error: [FatalErrorException] Trait 'CrudControllerTrait' not found
+Request URL: /indi/
+Stack Trace:
+#0 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Trait 'CrudCont...', '/Users/sebb/sit...', 26)
+#1 [internal function]: ErrorHandler::handleError(1, 'Trait 'CrudCont...', '/Users/sebb/sit...', 26, Array)
+#2 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Trait 'CrudCont...', '/Users/sebb/sit...', 26, Array)
+#3 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-08 19:24:59 Error: [MissingPluginException] Plugin Crud could not be found.
+Exception Attributes: array (
+  'plugin' => 'Crud',
+)
+Request URL: /indi/
+Stack Trace:
+#0 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(227): CakePlugin::path('Crud')
+#1 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(549): App::path('Lib', 'Crud')
+#2 [internal function]: App::load('CrudControllerT...')
+#3 /Users/sebb/sites/indi/Controller/AppController.php(27): spl_autoload_call('CrudControllerT...')
+#4 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(567): include('/Users/sebb/sit...')
+#5 [internal function]: App::load('AppController')
+#6 /Users/sebb/sites/indi/Controller/PagesController.php(22): spl_autoload_call('AppController')
+#7 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(567): include('/Users/sebb/sit...')
+#8 [internal function]: App::load('PagesController')
+#9 [internal function]: spl_autoload_call('PagesController')
+#10 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(266): class_exists('PagesController')
+#11 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(235): Dispatcher->_loadController(Object(CakeRequest))
+#12 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(158): Dispatcher->_getController(Object(CakeRequest), Object(CakeResponse))
+#13 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2015-01-08 19:25:52 Error: [MissingControllerException] Controller class Points.jsonController could not be found.
+Exception Attributes: array (
+  'class' => 'Points.jsonController',
+  'plugin' => NULL,
+)
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-01-08 19:25:55 Error: [MissingControllerException] Controller class Points.jsonController could not be found.
+Exception Attributes: array (
+  'class' => 'Points.jsonController',
+  'plugin' => NULL,
+)
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-01-08 19:27:15 Error: [MissingControllerException] Controller class Points.jsonController could not be found.
+Exception Attributes: array (
+  'class' => 'Points.jsonController',
+  'plugin' => NULL,
+)
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-01-08 19:27:16 Error: [MissingControllerException] Controller class Points.jsonController could not be found.
+Exception Attributes: array (
+  'class' => 'Points.jsonController',
+  'plugin' => NULL,
+)
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-01-08 19:27:17 Error: [MissingControllerException] Controller class Points.jsonController could not be found.
+Exception Attributes: array (
+  'class' => 'Points.jsonController',
+  'plugin' => NULL,
+)
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-01-08 19:27:17 Error: [MissingControllerException] Controller class Points.jsonController could not be found.
+Exception Attributes: array (
+  'class' => 'Points.jsonController',
+  'plugin' => NULL,
+)
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-01-08 19:27:17 Error: [MissingControllerException] Controller class Points.jsonController could not be found.
+Exception Attributes: array (
+  'class' => 'Points.jsonController',
+  'plugin' => NULL,
+)
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-01-08 19:27:17 Error: [MissingControllerException] Controller class Points.jsonController could not be found.
+Exception Attributes: array (
+  'class' => 'Points.jsonController',
+  'plugin' => NULL,
+)
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-01-08 19:28:03 Error: [MissingViewException] View file "/Users/sebb/sites/indi/View/Points/index.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/sebb/sites/indi/View/Points/index.ctp',
+)
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/View/View.php(470): View->_getViewFileName('index')
+#1 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Controller/Controller.php(959): View->render('index', NULL)
+#2 /Users/sebb/sites/indi/Plugin/Crud/Controller/Component/CrudComponent.php(231): Controller->render('index')
+#3 /Users/sebb/sites/indi/Plugin/Crud/Lib/CrudControllerTrait.php(55): CrudComponent->execute()
+#4 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(193): AppController->invokeAction(Object(CakeRequest))
+#5 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(PointsController), Object(CakeRequest))
+#6 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2015-01-08 19:28:21 Error: [MissingViewException] View file "/Users/sebb/sites/indi/View/Points/index.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/sebb/sites/indi/View/Points/index.ctp',
+)
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/View/View.php(470): View->_getViewFileName('index')
+#1 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Controller/Controller.php(959): View->render('index', NULL)
+#2 /Users/sebb/sites/indi/Plugin/Crud/Controller/Component/CrudComponent.php(231): Controller->render('index')
+#3 /Users/sebb/sites/indi/Plugin/Crud/Lib/CrudControllerTrait.php(55): CrudComponent->execute()
+#4 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(193): AppController->invokeAction(Object(CakeRequest))
+#5 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(PointsController), Object(CakeRequest))
+#6 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2015-01-08 19:28:21 Error: [MissingViewException] View file "/Users/sebb/sites/indi/View/Points/index.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/sebb/sites/indi/View/Points/index.ctp',
+)
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/View/View.php(470): View->_getViewFileName('index')
+#1 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Controller/Controller.php(959): View->render('index', NULL)
+#2 /Users/sebb/sites/indi/Plugin/Crud/Controller/Component/CrudComponent.php(231): Controller->render('index')
+#3 /Users/sebb/sites/indi/Plugin/Crud/Lib/CrudControllerTrait.php(55): CrudComponent->execute()
+#4 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(193): AppController->invokeAction(Object(CakeRequest))
+#5 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(PointsController), Object(CakeRequest))
+#6 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2015-01-08 19:28:21 Error: [MissingViewException] View file "/Users/sebb/sites/indi/View/Points/index.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/sebb/sites/indi/View/Points/index.ctp',
+)
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/View/View.php(470): View->_getViewFileName('index')
+#1 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Controller/Controller.php(959): View->render('index', NULL)
+#2 /Users/sebb/sites/indi/Plugin/Crud/Controller/Component/CrudComponent.php(231): Controller->render('index')
+#3 /Users/sebb/sites/indi/Plugin/Crud/Lib/CrudControllerTrait.php(55): CrudComponent->execute()
+#4 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(193): AppController->invokeAction(Object(CakeRequest))
+#5 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(PointsController), Object(CakeRequest))
+#6 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2015-01-08 19:28:32 Error: [MissingViewException] View file "/Users/sebb/sites/indi/View/Points/index.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/sebb/sites/indi/View/Points/index.ctp',
+)
+Request URL: /indi/points/index.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/View/View.php(470): View->_getViewFileName('index')
+#1 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Controller/Controller.php(959): View->render('index', NULL)
+#2 /Users/sebb/sites/indi/Plugin/Crud/Controller/Component/CrudComponent.php(231): Controller->render('index')
+#3 /Users/sebb/sites/indi/Plugin/Crud/Lib/CrudControllerTrait.php(55): CrudComponent->execute()
+#4 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(193): AppController->invokeAction(Object(CakeRequest))
+#5 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(PointsController), Object(CakeRequest))
+#6 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2015-01-08 19:28:38 Error: [MissingViewException] View file "/Users/sebb/sites/indi/View/Points/index.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/sebb/sites/indi/View/Points/index.ctp',
+)
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/View/View.php(470): View->_getViewFileName('index')
+#1 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Controller/Controller.php(959): View->render('index', NULL)
+#2 /Users/sebb/sites/indi/Plugin/Crud/Controller/Component/CrudComponent.php(231): Controller->render('index')
+#3 /Users/sebb/sites/indi/Plugin/Crud/Lib/CrudControllerTrait.php(55): CrudComponent->execute()
+#4 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(193): AppController->invokeAction(Object(CakeRequest))
+#5 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(PointsController), Object(CakeRequest))
+#6 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2015-01-08 19:28:39 Error: [MissingViewException] View file "/Users/sebb/sites/indi/View/Points/index.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/sebb/sites/indi/View/Points/index.ctp',
+)
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/View/View.php(470): View->_getViewFileName('index')
+#1 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Controller/Controller.php(959): View->render('index', NULL)
+#2 /Users/sebb/sites/indi/Plugin/Crud/Controller/Component/CrudComponent.php(231): Controller->render('index')
+#3 /Users/sebb/sites/indi/Plugin/Crud/Lib/CrudControllerTrait.php(55): CrudComponent->execute()
+#4 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(193): AppController->invokeAction(Object(CakeRequest))
+#5 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(PointsController), Object(CakeRequest))
+#6 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2015-01-08 19:28:39 Error: [MissingViewException] View file "/Users/sebb/sites/indi/View/Points/index.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/sebb/sites/indi/View/Points/index.ctp',
+)
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/View/View.php(470): View->_getViewFileName('index')
+#1 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Controller/Controller.php(959): View->render('index', NULL)
+#2 /Users/sebb/sites/indi/Plugin/Crud/Controller/Component/CrudComponent.php(231): Controller->render('index')
+#3 /Users/sebb/sites/indi/Plugin/Crud/Lib/CrudControllerTrait.php(55): CrudComponent->execute()
+#4 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(193): AppController->invokeAction(Object(CakeRequest))
+#5 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(PointsController), Object(CakeRequest))
+#6 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2015-01-08 19:28:40 Error: [MissingViewException] View file "/Users/sebb/sites/indi/View/Points/index.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/sebb/sites/indi/View/Points/index.ctp',
+)
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/View/View.php(470): View->_getViewFileName('index')
+#1 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Controller/Controller.php(959): View->render('index', NULL)
+#2 /Users/sebb/sites/indi/Plugin/Crud/Controller/Component/CrudComponent.php(231): Controller->render('index')
+#3 /Users/sebb/sites/indi/Plugin/Crud/Lib/CrudControllerTrait.php(55): CrudComponent->execute()
+#4 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(193): AppController->invokeAction(Object(CakeRequest))
+#5 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(PointsController), Object(CakeRequest))
+#6 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2015-01-08 19:28:40 Error: [MissingViewException] View file "/Users/sebb/sites/indi/View/Points/index.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/sebb/sites/indi/View/Points/index.ctp',
+)
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/View/View.php(470): View->_getViewFileName('index')
+#1 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Controller/Controller.php(959): View->render('index', NULL)
+#2 /Users/sebb/sites/indi/Plugin/Crud/Controller/Component/CrudComponent.php(231): Controller->render('index')
+#3 /Users/sebb/sites/indi/Plugin/Crud/Lib/CrudControllerTrait.php(55): CrudComponent->execute()
+#4 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(193): AppController->invokeAction(Object(CakeRequest))
+#5 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(PointsController), Object(CakeRequest))
+#6 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2015-01-08 19:28:41 Error: [MissingViewException] View file "/Users/sebb/sites/indi/View/Points/index.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/sebb/sites/indi/View/Points/index.ctp',
+)
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/View/View.php(470): View->_getViewFileName('index')
+#1 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Controller/Controller.php(959): View->render('index', NULL)
+#2 /Users/sebb/sites/indi/Plugin/Crud/Controller/Component/CrudComponent.php(231): Controller->render('index')
+#3 /Users/sebb/sites/indi/Plugin/Crud/Lib/CrudControllerTrait.php(55): CrudComponent->execute()
+#4 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(193): AppController->invokeAction(Object(CakeRequest))
+#5 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(PointsController), Object(CakeRequest))
+#6 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2015-01-08 19:28:41 Error: [MissingViewException] View file "/Users/sebb/sites/indi/View/Points/index.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/sebb/sites/indi/View/Points/index.ctp',
+)
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/View/View.php(470): View->_getViewFileName('index')
+#1 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Controller/Controller.php(959): View->render('index', NULL)
+#2 /Users/sebb/sites/indi/Plugin/Crud/Controller/Component/CrudComponent.php(231): Controller->render('index')
+#3 /Users/sebb/sites/indi/Plugin/Crud/Lib/CrudControllerTrait.php(55): CrudComponent->execute()
+#4 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(193): AppController->invokeAction(Object(CakeRequest))
+#5 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(PointsController), Object(CakeRequest))
+#6 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2015-01-08 19:28:41 Error: [MissingViewException] View file "/Users/sebb/sites/indi/View/Points/index.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/sebb/sites/indi/View/Points/index.ctp',
+)
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/View/View.php(470): View->_getViewFileName('index')
+#1 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Controller/Controller.php(959): View->render('index', NULL)
+#2 /Users/sebb/sites/indi/Plugin/Crud/Controller/Component/CrudComponent.php(231): Controller->render('index')
+#3 /Users/sebb/sites/indi/Plugin/Crud/Lib/CrudControllerTrait.php(55): CrudComponent->execute()
+#4 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(193): AppController->invokeAction(Object(CakeRequest))
+#5 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(PointsController), Object(CakeRequest))
+#6 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2015-01-08 19:28:42 Error: [MissingViewException] View file "/Users/sebb/sites/indi/View/Points/index.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/sebb/sites/indi/View/Points/index.ctp',
+)
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/View/View.php(470): View->_getViewFileName('index')
+#1 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Controller/Controller.php(959): View->render('index', NULL)
+#2 /Users/sebb/sites/indi/Plugin/Crud/Controller/Component/CrudComponent.php(231): Controller->render('index')
+#3 /Users/sebb/sites/indi/Plugin/Crud/Lib/CrudControllerTrait.php(55): CrudComponent->execute()
+#4 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(193): AppController->invokeAction(Object(CakeRequest))
+#5 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(PointsController), Object(CakeRequest))
+#6 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2015-01-08 19:28:42 Error: [MissingViewException] View file "/Users/sebb/sites/indi/View/Points/index.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/Users/sebb/sites/indi/View/Points/index.ctp',
+)
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/View/View.php(470): View->_getViewFileName('index')
+#1 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Controller/Controller.php(959): View->render('index', NULL)
+#2 /Users/sebb/sites/indi/Plugin/Crud/Controller/Component/CrudComponent.php(231): Controller->render('index')
+#3 /Users/sebb/sites/indi/Plugin/Crud/Lib/CrudControllerTrait.php(55): CrudComponent->execute()
+#4 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(193): AppController->invokeAction(Object(CakeRequest))
+#5 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(PointsController), Object(CakeRequest))
+#6 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#7 {main}
+2015-01-08 19:29:10 Error: Fatal Error (1): Call to a member function viewClassMap() on null in [/Users/sebb/sites/indi/Plugin/Crud/Controller/Crud/Listener/ApiListener.php, line 324]
+2015-01-08 19:29:10 Error: [FatalErrorException] Call to a member function viewClassMap() on null
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/Users/sebb/sit...', 324)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/Users/sebb/sit...', 324, Array)
+#2 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/Users/sebb/sit...', 324, Array)
+#3 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-08 19:29:22 Error: Fatal Error (4): syntax error, unexpected ',', expecting ')' in [/Users/sebb/sites/indi/Controller/AppController.php, line 29]
+2015-01-08 19:29:22 Error: [FatalErrorException] syntax error, unexpected ',', expecting ')'
+Request URL: /indi/points.json
+Stack Trace:
+#0 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Error/ErrorHandler.php(203): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/Users/sebb/sit...', 29)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/Users/sebb/sit...', 29, Array)
+#2 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/Users/sebb/sit...', 29, Array)
+#3 /Users/sebb/sites/indi/Vendor/cakephp/cakephp/lib/Cake/Core/App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-01-08 19:35:06 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /indi/js/js/bower_components/chartjs/Chart.js
+Stack Trace:
+#0 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-01-08 19:35:06 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /indi/js/js/bower_components/jquery/dist/jquery.min.js
+Stack Trace:
+#0 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-01-08 19:35:06 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /indi/js/js/main.js
+Stack Trace:
+#0 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-01-08 19:35:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /indi/js/js/main.js
+Stack Trace:
+#0 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-01-08 19:35:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /indi/js/js/bower_components/jquery/dist/jquery.min.js
+Stack Trace:
+#0 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-01-08 19:35:08 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /indi/js/js/bower_components/chartjs/Chart.js
+Stack Trace:
+#0 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-01-08 19:35:20 Error: [MissingControllerException] Controller class JsController could not be found.
+Exception Attributes: array (
+  'class' => 'JsController',
+  'plugin' => NULL,
+)
+Request URL: /indi/js/main.js
+Stack Trace:
+#0 /Users/sebb/sites/indi/webroot/index.php(99): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

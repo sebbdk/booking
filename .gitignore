@@ -1,0 +1,5 @@
+.DS_Store
+Config/database.php
+/app/tmp/*
+/app/Config/core.php
+/app/Config/database.php
