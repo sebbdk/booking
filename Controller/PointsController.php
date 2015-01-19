@@ -8,4 +8,8 @@ App::uses('AppController', 'Controller');
  */
 class PointsController extends AppController {
 
+	public $paginate = [
+		'limit' => 500
+	];
+
 }
