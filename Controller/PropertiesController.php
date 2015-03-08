@@ -8,4 +8,17 @@ App::uses('AppController', 'Controller');
  */
 class PropertiesController extends AppController {
 
+
+	public function view($id) {
+		$slugs = $this->Property->Point->find('all', [
+			'group' => 'Point.slug',
+			'conditions' => [
+				'property_slug' => $id
+			]
+ 		]);
+
+ 		$this->set('slugs', $slugs);
+		$this->Crud->execute('view');
+	}
+
 }

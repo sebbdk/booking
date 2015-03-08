@@ -57,7 +57,7 @@ class Property extends AppModel {
 	public $hasMany = array(
 		'Point' => array(
 			'className' => 'Point',
-			'foreignKey' => 'property_id',
+			'foreignKey' => 'slug',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',

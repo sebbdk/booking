@@ -1,48 +1,19 @@
-<div class="properties index">
-	<h2><?php echo __('Properties'); ?></h2>
-	<table cellpadding="0" cellspacing="0">
-	<thead>
-	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
-			<th><?php echo $this->Paginator->sort('name'); ?></th>
-			<th><?php echo $this->Paginator->sort('slug'); ?></th>
-			<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	</thead>
-	<tbody>
+<h3>Properties</h3>
+
+<div class="row">
+	
 	<?php foreach ($properties as $property): ?>
-	<tr>
-		<td><?php echo h($property['Property']['id']); ?>&nbsp;</td>
-		<td><?php echo h($property['Property']['name']); ?>&nbsp;</td>
-		<td><?php echo h($property['Property']['slug']); ?>&nbsp;</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $property['Property']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $property['Property']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $property['Property']['id']), array(), __('Are you sure you want to delete # %s?', $property['Property']['id'])); ?>
-		</td>
-	</tr>
-<?php endforeach; ?>
-	</tbody>
-	</table>
-	<p>
-	<?php
-	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-	));
-	?>	</p>
-	<div class="paging">
-	<?php
-		echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
-		echo $this->Paginator->numbers(array('separator' => ''));
-		echo $this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled'));
-	?>
-	</div>
-</div>
-<div class="actions">
-	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-		<li><?php echo $this->Html->link(__('New Property'), array('action' => 'add')); ?></li>
-		<li><?php echo $this->Html->link(__('List Points'), array('controller' => 'points', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Point'), array('controller' => 'points', 'action' => 'add')); ?> </li>
-	</ul>
+
+		<div class="col-md-6 property">
+			<div class="well">
+				<h3><?php echo $this->Html->link($property['Property']['slug'], ['action' => 'view', $property['Property']['slug']]); ?></h3>
+
+				<div style="height: 300px;">
+					<canvas class="graph" width="500" height="200" data-source="<?php echo Router::url(['controller' => 'points', 'action' => 'get_range', $property['Property']['slug']]); ?>"></canvas>
+				</div>
+			</div>
+		</div>
+
+	<?php endforeach; ?>
+
 </div>

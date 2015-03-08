@@ -98,3 +98,13 @@ CakeLog::config('error', array(
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
 ));
+
+
+Configure::write('menu.dashboard', array(
+	'name' => 'Dashboard',
+	'url' => array(
+		'controller' => 'properties',
+		'action' => 'index'
+	),
+	'sort' => 0
+));

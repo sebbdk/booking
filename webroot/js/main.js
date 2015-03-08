@@ -2,7 +2,7 @@
 * @Author: sebb
 * @Date:   2015-01-08 19:35:28
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-01-18 20:49:45
+* @Last Modified time: 2015-03-08 18:29:26
 */
 
 (function($) {
@@ -10,12 +10,52 @@
 	$(document).on('ready', init);
 
 	function init() {
-		getData(function(data) {
+/*		getData(function(data) {
 			var ctx = document.getElementById("myChart").getContext("2d");
 			var myNewChart = new Chart(ctx).Line(data, {
 				responsive:true,
 				maintainAspectRatio: false,
 				showLabels:false
+			});
+		});*/
+
+		prepGraphs();
+	}
+
+	function prepGraphs() {
+		$('.graph').each(function() {
+			var self = this;
+
+			$.get($(self).attr('data-source') + '.json', function(rawData) {
+				var labels = [];
+				var values = [];
+				$.each(rawData.data, function(index, value) {
+					labels.push(value.Point.created_day);
+					values.push(value.Point.count);
+				});
+
+				var data = {
+					labels:labels,
+					datasets:[
+						{
+							label: "",
+							fillColor: "rgba(220,220,220,0.2)",
+							strokeColor: "rgba(220,220,220,1)",
+							pointColor: "rgba(220,220,220,1)",
+							pointStrokeColor: "#fff",
+							pointHighlightFill: "#fff",
+							pointHighlightStroke: "rgba(220,220,220,1)",
+							data: values	
+						}
+					]
+				};
+
+				var ctx = $(self)[0].getContext("2d");
+				var myNewChart = new Chart(ctx).Line(data, {
+					responsive:true,
+					maintainAspectRatio: false,
+					showLabels:false
+				});
 			});
 		});
 	}
@@ -26,9 +66,9 @@
  * @return {[type]}            [description]
  */
 	function getData(callback) {
-		$.get('/points.json', function(rawData) {
+		$.get(window.appInfo.basepath + '.json', function(rawData) {
 			var wipData = {
-				labels:[],
+				labels:["label 1", "label 2", "label 3"],
 				datasets:[
 					{
 						label: "My First dataset",
@@ -45,7 +85,7 @@
 				]
 			};
 
-			var labs = [];
+		/*	var labs = [];
 
 			for(var t = 0; t < 24;t++) {
 				wipData.labels.push('Hour ' + t);
@@ -71,7 +111,7 @@
 				var current = wipData.datasets[0].data[index];
 
 				wipData.datasets[0].data[index] = current ? current+1:1;
-			});
+			});*/
 
 			callback(wipData);
 		});

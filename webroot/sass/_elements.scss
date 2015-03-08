@@ -1,0 +1,33 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	height: 100%;
+}
+
+.colorpicker {
+	width: 50%;
+}
+
+.container {
+	width: 100%;
+}
+
+.pagination {
+	display: block;
+	width: 100%;
+	height: 29px;
+
+	> li {
+		display: inline-block;
+	}
+}
+
+.property {
+	h3 {
+		margin: 0;
+		padding: 0;
+	}
+}

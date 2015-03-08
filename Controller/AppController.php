@@ -30,7 +30,7 @@ class AppController extends Controller {
 		'RequestHandler',
 		'Crud.Crud' => array(
 			'actions' => array(
-				'index', 'add', 'edit', 'view', 'delete'
+				'index', 'add', 'edit', 'view' => ['validateId' => false], 'delete'
 			),
 			'listeners' => ['Api']
 		)

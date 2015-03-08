@@ -1,0 +1,145 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 12, ../sass/preview.scss */
+.preview-container {
+  position: relative;
+  width: 40%;
+  float: left;
+}
+
+/* line 18, ../sass/preview.scss */
+.header {
+  font-size: 32px;
+  text-align: center;
+  padding: 40px;
+  margin: 0px;
+}
+
+/* line 25, ../sass/preview.scss */
+.phone {
+  padding: 160px 40px;
+  padding-bottom: 30px;
+  background-color: #666;
+  border-radius: 100px;
+  margin: auto;
+  width: 720px;
+  -webkit-transform: scale(0.5) translate(-100%, 0px);
+  -webkit-transform-origin: top center;
+  position: absolute;
+  left: 50%;
+}
+
+/* line 40, ../sass/preview.scss */
+.mobile-screen {
+  width: 640px;
+  min-height: 1020px;
+  background-color: #fff;
+  background-color: grey;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background-image: url("../img/app-bg.jpg");
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-color: #ededed;
+}
+
+/* line 54, ../sass/preview.scss */
+.m-btn {
+  width: 120px;
+  height: 120px;
+  margin: 30px auto;
+  margin-bottom: 0px;
+  background-color: #222;
+  border-radius: 100px;
+}
+
+/* line 63, ../sass/preview.scss */
+b, strong {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* line 68, ../sass/preview.scss */
+.page {
+  padding-top: 30px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+/* line 74, ../sass/preview.scss */
+.wysiwyg-block {
+  background-color: #fff;
+  padding: 30px;
+  margin-bottom: 30px;
+  font-size: 30px;
+  word-wrap: break-word;
+  text-align: left;
+  color: #000;
+}
+/* line 83, ../sass/preview.scss */
+.wysiwyg-block .youtube-link {
+  position: relative;
+  display: inline-block;
+}
+/* line 88, ../sass/preview.scss */
+.wysiwyg-block blockquote {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin: 20px 30px;
+  padding-left: 15px;
+  border-left: 3px solid #ccc;
+  text-align: left;
+}
+/* line 97, ../sass/preview.scss */
+.wysiwyg-block h1, .wysiwyg-block .article-header, .wysiwyg-block b.article-header {
+  font-size: 50px;
+  line-height: 65px;
+  font-weight: bold;
+  text-align: left;
+  padding: 0;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  margin: 0;
+}
+/* line 108, ../sass/preview.scss */
+.wysiwyg-block h2 {
+  font-size: 40px;
+  text-align: left;
+  font-weight: bold;
+}
+/* line 114, ../sass/preview.scss */
+.wysiwyg-block h3 {
+  font-size: 32px;
+  text-align: left;
+  font-weight: normal;
+  line-height: 45px;
+}
+/* line 121, ../sass/preview.scss */
+.wysiwyg-block b, .wysiwyg-block p {
+  margin-bottom: 20px;
+  word-wrap: break-word;
+  max-width: 500px;
+}
+/* line 127, ../sass/preview.scss */
+.wysiwyg-block a {
+  word-wrap: break-word;
+  max-width: 500px;
+  color: #32ccfe;
+}
+/* line 133, ../sass/preview.scss */
+.wysiwyg-block ul, .wysiwyg-block ol {
+  list-style-type: disc;
+  margin-left: 60px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+/* line 140, ../sass/preview.scss */
+.wysiwyg-block ol {
+  list-style-type: decimal;
+}
+/* line 144, ../sass/preview.scss */
+.wysiwyg-block i, .wysiwyg-block em {
+  font-style: italic;
+}

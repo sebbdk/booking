@@ -8,6 +8,18 @@ App::uses('AppModel', 'Model');
  */
 class Point extends AppModel {
 
+	public $belongsTo = [
+		'Property' => [
+			'foreignKey' => 'slug'
+		]
+	];
+
+	public $virtualFields = array(
+	    'count' => 'count(*)',
+	    'created_day' => 'DAY(created)'
+	);
+
+
 /**
  * Validation rules
  *
