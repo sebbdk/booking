@@ -2,7 +2,7 @@
 * @Author: sebb
 * @Date:   2015-01-18 20:51:02
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-01-18 20:53:54
+* @Last Modified time: 2015-03-16 19:15:12
 */
 
 (function() {
@@ -13,10 +13,8 @@
 		createCookie('_track01', _trackId, 360);
 
 		var url = 'http://track.sebb.dk/points/add.json';
-		var data = {Point:{slug:"web_pageview", value:document.location.href, client_identifier:_trackId, property_slug:"blog_sebb_dk"}};
-		$.post(url, data, function(res) {
-			console.log(res);	
-		});
+		var data = {Point:{slug:"web_pageview", value:document.location.href, client_identifier:_trackId, property_slug:propertyID}};
+		$.post(url, data, function(res) {});
 	}
 
 	function createCookie(name,value,days) {
