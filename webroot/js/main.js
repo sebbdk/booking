@@ -2,7 +2,7 @@
 * @Author: sebb
 * @Date:   2015-01-08 19:35:28
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-03-08 18:29:26
+* @Last Modified time: 2015-03-17 22:15:03
 */
 
 (function($) {
@@ -29,16 +29,18 @@
 			$.get($(self).attr('data-source') + '.json', function(rawData) {
 				var labels = [];
 				var values = [];
+				var valuesUnique = [];
 				$.each(rawData.data, function(index, value) {
 					labels.push(value.Point.created_day);
 					values.push(value.Point.count);
+					valuesUnique.push(value.Point.unique_count);
 				});
 
 				var data = {
 					labels:labels,
 					datasets:[
 						{
-							label: "",
+							label: "Total",
 							fillColor: "rgba(220,220,220,0.2)",
 							strokeColor: "rgba(220,220,220,1)",
 							pointColor: "rgba(220,220,220,1)",
@@ -46,6 +48,16 @@
 							pointHighlightFill: "#fff",
 							pointHighlightStroke: "rgba(220,220,220,1)",
 							data: values	
+						},
+						{
+							label: "Unique",
+							fillColor: "rgba(80,80,220,0.2)",
+							strokeColor: "rgba(80,80,220,1)",
+							pointColor: "rgba(80,80,220,1)",
+							pointStrokeColor: "#fff",
+							pointHighlightFill: "#fff",
+							pointHighlightStroke: "rgba(220,220,220,1)",
+							data: valuesUnique	
 						}
 					]
 				};

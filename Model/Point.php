@@ -16,7 +16,8 @@ class Point extends AppModel {
 
 	public $virtualFields = array(
 	    'count' => 'count(*)',
-	    'created_day' => 'DAY(created)'
+	    'unique_count' => 'count(Distinct Point.client_identifier)',
+	    'created_day' => 'DATE(created)'
 	);
 
 

@@ -32,8 +32,8 @@ class PointsController extends AppController {
  
 		$data = $this->Point->find('all', [
 			'recursive' => -1,
-			'fields' => ['created_day', 'count'],
-			'group' => ['DAY(created)'],
+			'fields' => ['created', 'created_day', 'count', 'unique_count'],
+			'group' => ['created_day'],
 			'conditions' => $conditions
 		]);
 
