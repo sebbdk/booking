@@ -2,18 +2,27 @@
 * @Author: sebb
 * @Date:   2015-01-18 20:51:02
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-03-16 19:15:12
+* @Last Modified time: 2015-04-08 01:41:45
 */
 
 (function() {
 
-	window._track = function(propertyID) {
+	window._track = function(propertyID, slug, value) {
 		var c = readCookie('_track01');
 		var _trackId = typeof(c) !== "string" ? guid():c;
 		createCookie('_track01', _trackId, 360);
 
+		if(_track.propertyID != undefined) {
+			value = slug;
+			slug = propertyID;
+			propertyID = _track.propertyID;
+		}
+
+		slug = slug != undefined ? slug:"web_pageview";
+		value = value != undefined ? value:document.location.href;
+
 		var url = 'http://track.sebb.dk/points/add.json';
-		var data = {Point:{slug:"web_pageview", value:document.location.href, client_identifier:_trackId, property_slug:propertyID}};
+		var data = {Point:{slug:slug, value:value, client_identifier:_trackId, property_slug:propertyID}};
 		$.post(url, data, function(res) {});
 	}
 
