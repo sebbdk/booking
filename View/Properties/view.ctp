@@ -12,7 +12,7 @@
 		</div>
 	</div>
 
-	<?php foreach ($slugs as $slug): ?>
+	<?php foreach ($slugs as $slug): if($slug['Point']['count'] > 20) : ?>
 
 		<div class="col-md-6 property">
 			<div class="well">
@@ -24,6 +24,6 @@
 			</div>
 		</div>
 
-	<?php endforeach; ?>
+	<?php endif; endforeach; ?>
 
 </div>
