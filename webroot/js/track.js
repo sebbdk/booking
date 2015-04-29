@@ -2,7 +2,7 @@
 * @Author: sebb
 * @Date:   2015-01-18 20:51:02
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-04-08 01:41:45
+* @Last Modified time: 2015-04-29 19:53:11
 */
 
 (function() {
@@ -22,6 +22,11 @@
 		value = value != undefined ? value:document.location.href;
 
 		var url = 'http://track.sebb.dk/points/add.json';
+		
+		if(document.location.host == "localhost") {
+			url = 'http://localhost/track/points/add.json';
+		}
+		
 		var data = {Point:{slug:slug, value:value, client_identifier:_trackId, property_slug:propertyID}};
 		$.post(url, data, function(res) {});
 	}

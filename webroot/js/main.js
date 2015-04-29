@@ -2,7 +2,7 @@
 * @Author: sebb
 * @Date:   2015-01-08 19:35:28
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-03-17 22:15:03
+* @Last Modified time: 2015-04-29 19:54:07
 */
 
 (function($) {
@@ -20,6 +20,7 @@
 		});*/
 
 		prepGraphs();
+		_track("track");
 	}
 
 	function prepGraphs() {

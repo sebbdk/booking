@@ -12,6 +12,7 @@ echo $this->Html->css('bootstrap.min');
 echo $this->Html->script([
 	'bower_components/jquery/dist/jquery.min',
 	'bower_components/chartjs/Chart.js',
+	'track.js',
 	'main.js'
 ]);
 
