@@ -21,7 +21,7 @@ class PointsController extends AppController {
 
 	public function get_range($property_slug = null, $slug = null) {
 		//$conditions = ['MONTH(created) = MONTH(NOW())'];
-		$conditions = ['created >= DATE_SUB(NOW(), INTERVAL 1 MONTH)'];
+		$conditions = ['created >= DATE_SUB(NOW(), INTERVAL 3 MONTH)'];
 
 		if($property_slug != null) {
 			$conditions['property_slug'] = $property_slug;
