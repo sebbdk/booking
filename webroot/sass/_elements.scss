@@ -5,29 +5,63 @@ html {
 
 body {
 	height: 100%;
-}
-
-.colorpicker {
-	width: 50%;
+	background-image: url('../img/pattern9.png');
+	background-repeat: repeat;
 }
 
 .container {
-	width: 100%;
+	max-width: 1000px;
+	background-color: #FFF;
+	padding: 0;
+	padding-bottom: 15px;
 }
 
-.pagination {
-	display: block;
-	width: 100%;
-	height: 29px;
+h2 {
+	margin: 15px 0;
+}
 
-	> li {
-		display: inline-block;
+#calendar {
+	width: 100%;
+	margin: 0 auto;
+}
+
+.header {
+	background-color: #e9a825 !important;
+	height: 43px;
+}
+
+.header-info {
+	color: #FFF;
+	font-size: 12px;
+	line-height: 43px;
+	padding: 0 20px;
+	font-family: 'PTSansRegular', Arial, Helvetica, sans-serif;
+
+
+	a, span {
+		color: #FFF;
+
 	}
 }
 
-.property {
-	h3 {
-		margin: 0;
-		padding: 0;
+.fc-cell-overlay {
+	background: #e9a825;
+	opacity: .8;
+	filter: alpha(opacity=80);
+}
+
+.choose-time-btn {
+	margin-left: 10px;
+	padding: 3px 10px;
+}
+
+.booking-container {
+	img {
+		width: 100%;
+	}
+	
+	.col-md-6 {
+		margin-top: 15px;
+		text-align: center;
 	}
 }

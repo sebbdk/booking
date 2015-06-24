@@ -9,6 +9,7 @@ body {
   padding-top: 40px;
   padding-bottom: 40px;
   background-color: #eee;
+  background-image: none;
 }
 
 /* line 13, ../sass/signin.scss */
@@ -46,14 +47,14 @@ body {
 }
 
 /* line 37, ../sass/signin.scss */
-.form-signin input[type="email"] {
+.form-signin input:first-of-type {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
 
 /* line 42, ../sass/signin.scss */
-.form-signin input[type="password"] {
+.form-signin input:last-of-type {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;

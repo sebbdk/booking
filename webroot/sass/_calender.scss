@@ -1,0 +1,46 @@
+.fc-cell-overlay {
+	background: #e9a825;
+	opacity: .8;
+	filter: alpha(opacity=80);
+}
+
+
+.times {
+	border-top: 1px solid #ccc;
+	margin-top: 15px;
+	line-height: 42px;
+
+	.item {
+		padding: 0 10px;
+		display: block;
+
+		.time {
+			color: #666;
+		}
+
+		&:nth-child(even) {
+			background-color: #CCC;
+		}
+
+		&.selected {
+			background-color: #e9a825;
+			
+			&:nth-child(even) {
+				background-color: #e9a825;
+			}
+		}
+
+		&:hover {
+			text-decoration: none;
+
+			.status {
+				text-decoration: underline;	
+			}
+		}
+	}
+}
+
+.form {
+	margin-top: 15px;
+	display: none;
+}

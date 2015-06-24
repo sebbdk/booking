@@ -2,140 +2,78 @@
 * @Author: sebb
 * @Date:   2015-01-08 19:35:28
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-04-29 19:54:07
+* @Last Modified time: 2015-06-24 16:18:29
 */
 
 (function($) {
 
-	$(document).on('ready', init);
+	var date = new Date();
+	var d = date.getDate();
+	var m = date.getMonth();
+	var y = date.getFullYear();
+
+	var choosenDate = null;
+	
+	$(document).on("ready", init);
+	$(document).on("click", ".choose-time-btn", next);
+	$(document).on("click", ".times .item.availeble", chooseTime);
+
+	function chooseTime(evt) {
+		evt.preventDefault();
+		$(".item.selected").removeClass("selected");
+		$(this).addClass("selected");
+
+		var date = new Date(parseInt($(this).attr("date-time")) * 1000);
+
+		$("#date-time").val( new Date( date ).toMysqlFormat() );
+
+		$(".form").show();
+	}
 
 	function init() {
-/*		getData(function(data) {
-			var ctx = document.getElementById("myChart").getContext("2d");
-			var myNewChart = new Chart(ctx).Line(data, {
-				responsive:true,
-				maintainAspectRatio: false,
-				showLabels:false
-			});
-		});*/
+		$calender = $("#calendar");
 
-		prepGraphs();
-		_track("track");
-	}
-
-	function prepGraphs() {
-		$('.graph').each(function() {
-			var self = this;
-
-			$.get($(self).attr('data-source') + '.json', function(rawData) {
-				var labels = [];
-				var values = [];
-				var valuesUnique = [];
-				$.each(rawData.data, function(index, value) {
-					labels.push(value.Point.created_day);
-					values.push(value.Point.count);
-					valuesUnique.push(value.Point.unique_count);
-				});
-
-				var data = {
-					labels:labels,
-					datasets:[
-						{
-							label: "Total",
-							fillColor: "rgba(220,220,220,0.2)",
-							strokeColor: "rgba(220,220,220,1)",
-							pointColor: "rgba(220,220,220,1)",
-							pointStrokeColor: "#fff",
-							pointHighlightFill: "#fff",
-							pointHighlightStroke: "rgba(220,220,220,1)",
-							data: values	
-						},
-						{
-							label: "Unique",
-							fillColor: "rgba(80,80,220,0.2)",
-							strokeColor: "rgba(80,80,220,1)",
-							pointColor: "rgba(80,80,220,1)",
-							pointStrokeColor: "#fff",
-							pointHighlightFill: "#fff",
-							pointHighlightStroke: "rgba(220,220,220,1)",
-							data: valuesUnique	
-						}
-					]
-				};
-
-				var ctx = $(self)[0].getContext("2d");
-				var myNewChart = new Chart(ctx).Line(data, {
-					responsive:true,
-					maintainAspectRatio: false,
-					showLabels:false
-				});
-			});
+		$calender.fullCalendar({
+			dayClick:function(arg) {
+				$calender.fullCalendar("select", arg);
+				choosenDate = arg;
+				$(".choose-time-btn").removeAttr("disabled");
+			},
+			header: {
+				left: "title prev,next today",
+				center: "",
+				right: ""
+			},
+			editable: true
 		});
+
+        var custom_buttons = '<button class="choose-time-btn btn btn-default btn-primary" disabled>Book på valgte dag</button>';
+        $(".fc-header-right").append(custom_buttons);
+	};
+
+	function next(evt) {
+		if(!$(this).attr("disabled")) {
+			document.location.href = window.appInfo.basepath + "/add/" + (choosenDate.getTime()/1000);
+		}
 	}
 
-/**
- * Creates a graph grouped on minutes
- * @param  {Function} callback [description]
- * @return {[type]}            [description]
- */
-	function getData(callback) {
-		$.get(window.appInfo.basepath + '.json', function(rawData) {
-			var wipData = {
-				labels:["label 1", "label 2", "label 3"],
-				datasets:[
-					{
-						label: "My First dataset",
-						fillColor: "rgba(220,220,220,0.2)",
-						strokeColor: "rgba(220,220,220,1)",
-						pointColor: "rgba(220,220,220,1)",
-						pointStrokeColor: "#fff",
-						pointHighlightFill: "#fff",
-						pointHighlightStroke: "rgba(220,220,220,1)",
-						data: [
-							10, 10, 10, 10
-						]	
-					}
-				]
-			};
-
-		/*	var labs = [];
-
-			for(var t = 0; t < 24;t++) {
-				wipData.labels.push('Hour ' + t);
-				labs.push(t);
-				wipData.datasets[0].data[t] = 0;
-			}
-
-			$.each(rawData.data, function(index, value) {
-			//	var group = new Date(value.Point.created).getMinutes();
-				var group = roundMinutes(new Date(value.Point.created)).getHours();
-
-
-				
-				if(labs.indexOf(group) === -1) {
-					wipData.labels.push(group);
-					labs.push(group);
-				}
-
-				var index = labs.indexOf(group);
-
-				console.log(index);
-
-				var current = wipData.datasets[0].data[index];
-
-				wipData.datasets[0].data[index] = current ? current+1:1;
-			});*/
-
-			callback(wipData);
-		});
+	/**
+	 * You first need to create a formatting function to pad numbers to two digits…
+	 **/
+	function twoDigits(d) {
+	    if(0 <= d && d < 10) return "0" + d.toString();
+	    if(-10 < d && d < 0) return "-0" + (-1*d).toString();
+	    return d.toString();
 	}
 
-	function roundMinutes(date) {
-
-		date.setHours(date.getHours() + Math.round(date.getMinutes()/60));
-		date.setMinutes(0);
-
-		return date;
-	}
+	/**
+	 * …and then create the method to output the date string as desired.
+	 * Some people hate using prototypes this way, but if you are going
+	 * to apply this to more than one Date object, having it as a prototype
+	 * makes sense.
+	 **/
+	Date.prototype.toMysqlFormat = function() {
+	    return this.getUTCFullYear() + "-" + twoDigits(1 + this.getMonth()) + "-" + twoDigits(this.getDate()) + " " + twoDigits(this.getHours()) + ":" + twoDigits(this.getMinutes()) + ":" + twoDigits(this.getSeconds());
+	};
 
 })(jQuery);

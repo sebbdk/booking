@@ -1,0 +1,44 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "bootstrap";
+@import "_calender";
+
+body {
+	background-color: #EEE;
+}
+
+#page-content-wrapper {
+	padding: 0;
+}
+
+.container {
+	width: 100%;
+	max-width: 1000px;
+	margin: auto;
+	padding: 0;
+}
+
+.top-bar {
+	background-color: #e9a825;
+	height: 43px;
+	line-height: 43px;
+
+	h1 {
+		line-height: 43px;
+		font-size: 20px;
+		padding: 0;
+		margin: 0;
+		color: #fff;
+	}
+}
+
+.message {
+	@extend .alert;
+
+	&.success {
+		@extend .alert-success;
+	}
+}

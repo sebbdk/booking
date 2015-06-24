@@ -26,24 +26,103 @@ class AppController extends Controller {
 
 	use CrudControllerTrait;
 
-	public $components = array(
+	public $uses = [
+		'User'
+	];
+
+	public $components = [
 		'RequestHandler',
-		'Crud.Crud' => array(
-			'actions' => array(
-				'index', 'add', 'edit', 'view' => ['validateId' => false], 'delete'
-			),
-			'listeners' => ['Api']
-		)
-	);
+		'Crud.Crud' => [
+			'actions' => [
+				'index' =>['validateId' => false],
+				'view' =>['validateId' => false],
+				'add' =>['validateId' => false],
+				'edit' =>['validateId' => false],
+				'delete' =>['validateId' => false],
+
+				'admin_index' =>['validateId' => false],
+				'admin_view' =>['validateId' => false],
+				'admin_add' =>['validateId' => false],
+				'admin_edit' =>['validateId' => false],
+				'admin_delete' =>['validateId' => false]
+			],
+			//,
+			'listeners' => ['Api'],
+			'validateId' => false
+		],
+		'Cookie',
+		'Session',
+		'Auth' => [
+			'authenticate' => [
+                'Authenticate.Cookie' => [
+                    'fields' => [
+                        'username' => 'login',
+                        'password' => 'password'
+                    ],
+                    'columns' => ['email', 'username'],
+                    'userModel' => 'User'
+                ],
+                'Authenticate.MultiColumn' => [
+                    'fields' => [
+                        'username' => 'login',
+                        'password' => 'password'
+                    ],
+                    'columns' => ['email', 'username'],
+                    'userModel' => 'User'
+                ],
+                'Authenticate.Token' => [
+                    'parameter' => '_token',
+                    'header' => 'X-MyApiTokenHeader',
+                    'userModel' => 'User',
+                    'fields' => [
+                        'username' => 'login',
+                        'password' => 'password',
+                        'token' => 'public_key',
+                    ],
+                    'columns' => ['email', 'ssn'],
+                    'continue' => true
+                ]
+			],
+			'sessionKey' => false,
+			'loginRedirect' => [
+				'controller' => 'users', 
+				'action' => 'index',
+				'admin' => true
+			],
+			'loginAction' => [
+				'controller' => 'bookings',
+				'action' => 'index',
+				'admin' => true
+			],
+			'logoutRedirect' => [
+				'controller' => 'users',
+				'action' => 'login',
+				'admin' => true
+			],
+			'unauthorizedRedirect' => [
+				'controller' => 'users',
+				'action' => 'login',
+				'admin' => true
+			]
+		]
+	];
 
 	public function beforeFilter() {
-        $this->response->header('Access-Control-Allow-Origin','*');
-        $this->response->header('Access-Control-Allow-Methods','*');
-        $this->response->header('Access-Control-Allow-Headers','X-Requested-With');
-        $this->response->header('Access-Control-Allow-Headers','Content-Type, x-xsrf-token');
-        $this->response->header('Access-Control-Max-Age','172800');
+		if(isset($this->request->data['_json'])) {
+			$this->request->data = json_decode($this->request->data['_json'], true);
+		}
 
-        parent::beforeFilter();
+		$this->header('Access-Control-Allow-Origin: *');
+		$this->Cookie->type('rijndael');
+
+		$isAdminRequest = isset($this->request->params['prefix']) && $this->request->params['prefix'] === 'admin';
+		if($this->Auth->loggedIn() && $isAdminRequest) {
+			$this->layout = "admin_default";
+		} else {
+			$this->Auth->allow();
+		}
+
+		parent::beforeFilter();
 	}
 
 }

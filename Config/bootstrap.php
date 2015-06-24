@@ -61,6 +61,8 @@ Cache::config('default', array('engine' => 'File'));
  *
  */
 CakePlugin::load('Crud');
+CakePlugin::load('Authenticate');
+CakePlugin::load('Assets');
 
 
 /**
@@ -97,14 +99,4 @@ CakeLog::config('error', array(
 	'engine' => 'File',
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
-));
-
-
-Configure::write('menu.dashboard', array(
-	'name' => 'Dashboard',
-	'url' => array(
-		'controller' => 'properties',
-		'action' => 'index'
-	),
-	'sort' => 0
 ));

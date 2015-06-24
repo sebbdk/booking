@@ -1,18 +1,12 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Property Model
+ * BookingType Model
  *
- * @property Point $Point
+ * @property Booking $Booking
+ * @property OpenTime $OpenTime
  */
-class Property extends AppModel {
-
-/**
- * Use table
- *
- * @var mixed False or table name
- */
-	public $useTable = 'property';
+class BookingType extends AppModel {
 
 /**
  * Display field
@@ -29,7 +23,7 @@ class Property extends AppModel {
 	public $validate = array(
 		'name' => array(
 			'notEmpty' => array(
-				'rule' => array('notEmpty', 'isUnique'),
+				'rule' => array('notEmpty'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
@@ -37,12 +31,14 @@ class Property extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'slug' => array(
+		'asset_file' => array(
 			'notEmpty' => array(
-				'rule' => array('notEmpty')
-			),
-			'isUnique' => array(
-				'rule' => array('isUnique')
+				'rule' => array('notEmpty'),
+				//'message' => 'Your custom message here',
+				//'allowEmpty' => false,
+				//'required' => false,
+				//'last' => false, // Stop validation after this rule
+				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
 	);
@@ -55,9 +51,22 @@ class Property extends AppModel {
  * @var array
  */
 	public $hasMany = array(
-		'Point' => array(
-			'className' => 'Point',
-			'foreignKey' => 'slug',
+		'Booking' => array(
+			'className' => 'Booking',
+			'foreignKey' => 'booking_type_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'OpenTime' => array(
+			'className' => 'OpenTime',
+			'foreignKey' => 'booking_type_id',
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',

@@ -1,8 +1,9 @@
 {
-    "name": "Indi",
+    "name": "Storebrand",
     "require": {
         "cakephp/cakephp": "2.5.*",
-        "FriendsOfCake/crud": "3.*"
+        "FriendsOfCake/crud": "3.*",
+        "friendsofcake/authenticate": "~1.0"
     },
     "config": {
         "vendor-dir": "Vendor/"
