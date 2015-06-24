@@ -11,4 +11,7 @@
 	<input type="password" name="data[User][password]"  id="inputPassword" class="form-control" placeholder="Password" required>
 
 	<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+
+	<br />
+	<?php echo $this->Html->link("Forgot password?", ['admin' => false, 'action' => 'password_recover']); ?>
 <?php echo $this->Form->end(); ?>
