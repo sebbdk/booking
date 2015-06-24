@@ -85,7 +85,7 @@ class AppController extends Controller {
 			],
 			'sessionKey' => false,
 			'loginRedirect' => [
-				'controller' => 'users', 
+				'controller' => 'bookings', 
 				'action' => 'index',
 				'admin' => true
 			],

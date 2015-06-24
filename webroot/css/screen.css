@@ -7896,49 +7896,54 @@ button.close {
   }
 }
 /* line 1, ../sass/_calender.scss */
-.fc-cell-overlay {
+.fc-cell-overlay, .fc-highlight {
   background: #e9a825;
   opacity: .8;
   filter: alpha(opacity=80);
 }
 
-/* line 8, ../sass/_calender.scss */
+/* line 7, ../sass/_calender.scss */
+.fc-view-container {
+  background-color: #FFF;
+}
+
+/* line 12, ../sass/_calender.scss */
 .times {
   border-top: 1px solid #ccc;
   margin-top: 15px;
   line-height: 42px;
 }
-/* line 13, ../sass/_calender.scss */
+/* line 17, ../sass/_calender.scss */
 .times .item {
   padding: 0 10px;
   display: block;
 }
-/* line 17, ../sass/_calender.scss */
+/* line 21, ../sass/_calender.scss */
 .times .item .time {
   color: #666;
 }
-/* line 21, ../sass/_calender.scss */
+/* line 25, ../sass/_calender.scss */
 .times .item:nth-child(even) {
   background-color: #CCC;
 }
-/* line 25, ../sass/_calender.scss */
+/* line 29, ../sass/_calender.scss */
 .times .item.selected {
   background-color: #e9a825;
 }
-/* line 28, ../sass/_calender.scss */
+/* line 32, ../sass/_calender.scss */
 .times .item.selected:nth-child(even) {
   background-color: #e9a825;
 }
-/* line 33, ../sass/_calender.scss */
+/* line 37, ../sass/_calender.scss */
 .times .item:hover {
   text-decoration: none;
 }
-/* line 36, ../sass/_calender.scss */
+/* line 40, ../sass/_calender.scss */
 .times .item:hover .status {
   text-decoration: underline;
 }
 
-/* line 43, ../sass/_calender.scss */
+/* line 47, ../sass/_calender.scss */
 .form {
   margin-top: 15px;
   display: none;

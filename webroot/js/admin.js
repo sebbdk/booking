@@ -2,7 +2,7 @@
 * @Author: sebb
 * @Date:   2015-01-08 19:35:28
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-06-24 16:27:09
+* @Last Modified time: 2015-06-24 17:30:44
 */
 
 (function($) {
@@ -16,6 +16,7 @@
 	
 	$(document).on("ready", init);
 	$(document).on("click", ".choose-time-btn", next);
+	$(document).on("click", ".toggle-day", toggleOpen);
 	$(document).on("click", ".times .item.availeble", chooseTime);
 
 	function chooseTime(evt) {
@@ -45,13 +46,24 @@
 					color: color,
 					id: item["Booking"].id
 				})
-			})
+			});
 
 			$calender.fullCalendar({
+				dayRender: function (date, element, view) {
+					console.log(date.unix() * 1000 - (1000 * 60 * 60* 2));
+
+					//var check = $.fullCalendar.formatDate(date,'yyyy-MM-dd');
+					//var today = $.fullCalendar.formatDate(new Date(),'yyyy-MM-dd');
+					//if (check < today) {
+					//	element.css("background-color", "red");
+					//}
+				},
 				dayClick:function(arg) {
 					$calender.fullCalendar("select", arg);
-					choosenDate = arg;
-					$(".choose-time-btn").removeAttr("disabled");
+
+					choosenDate = new Date(arg.unix() * 1000 - (1000 * 60 * 60* 2));
+
+					$(".choose-time-btn, .toggle-day").removeAttr("disabled");
 				},
 				eventClick:function(calEvent, jsEvent, view) {
 					document.location.href = window.appInfo.basepath + "/edit/" + calEvent.id;
@@ -65,11 +77,31 @@
 				events:events
 			});
 
-	        var custom_buttons = '<button class="btn btn-default" disabled>Toggle open day</button>';
+	        var custom_buttons = '<button class="toggle-day btn btn-default" disabled>Toggle open day</button>';
 	        custom_buttons += ' <button class="choose-time-btn btn btn-default btn-primary" disabled>Book on choosen day</button>';
-	        $(".fc-header-right").append(custom_buttons);
+	        $(".fc-right").append(custom_buttons);
 		});
 	};
+
+	function toggleOpen(evt) {
+		if(!$(this).attr("disabled")) {
+
+			//TO BE CONTINUED!
+
+			var data = {
+				data:{
+					OpenTime:{
+						start:choosenDate.toMysqlFormat(),
+						end:choosenDate.toMysqlFormat()
+					}
+				}
+			}
+
+			$.post('', function() {
+
+			})
+		}
+	}
 
 	function next(evt) {
 		if(!$(this).attr("disabled")) {
