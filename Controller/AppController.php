@@ -118,8 +118,10 @@ class AppController extends Controller {
 		$isAdminRequest = isset($this->request->params['prefix']) && $this->request->params['prefix'] === 'admin';
 		if($this->Auth->loggedIn() && $isAdminRequest) {
 			$this->layout = "admin_default";
-		} else {
+		} else if(!$isAdminRequest || $this->action == "admin_login") {
 			$this->Auth->allow();
+		} else if($this->action != "admin_login"){
+			$this->redirect(["controller" => "users", "action" => "login"]);
 		}
 
 		parent::beforeFilter();

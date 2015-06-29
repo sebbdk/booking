@@ -2,7 +2,7 @@
 * @Author: sebb
 * @Date:   2015-01-08 19:35:28
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-06-24 16:18:29
+* @Last Modified time: 2015-06-29 16:42:01
 */
 
 (function($) {
@@ -16,19 +16,6 @@
 	
 	$(document).on("ready", init);
 	$(document).on("click", ".choose-time-btn", next);
-	$(document).on("click", ".times .item.availeble", chooseTime);
-
-	function chooseTime(evt) {
-		evt.preventDefault();
-		$(".item.selected").removeClass("selected");
-		$(this).addClass("selected");
-
-		var date = new Date(parseInt($(this).attr("date-time")) * 1000);
-
-		$("#date-time").val( new Date( date ).toMysqlFormat() );
-
-		$(".form").show();
-	}
 
 	function init() {
 		$calender = $("#calendar");
@@ -53,7 +40,7 @@
 
 	function next(evt) {
 		if(!$(this).attr("disabled")) {
-			document.location.href = window.appInfo.basepath + "/add/" + (choosenDate.getTime()/1000);
+			document.location.href = window.appInfo.basepath + "bookings/add/" + (choosenDate.getTime()/1000) + "/" + $("#booking-type-id").val();
 		}
 	}
 

@@ -45,7 +45,7 @@
 
 		<script>
 			window.appInfo = <?php echo json_encode([
-				"basepath" => Router::url(),
+				"basepath" => Router::url("/"),
 				"admin" => true
 			]); ?>;
 		</script>

@@ -1,42 +1,24 @@
 <h1>Vælg tidspunkt</h1>
 
-<div class="times">
-	<?php
-		$timeLength = 1.25;
-		$rows = floor(8 / $timeLength);
-		$hour = 60 * 60;
-
-		for($c = 0; $c < $rows; $c++) {
-			$time = $timeLength * $c * 60 * 60 + (60 * 60 * 9);
-			$dateTime = intval($date + $time) + $hour;
-			echo '
-			<a href="#" class="item availeble" date-time="' . $dateTime . '">
-				<span class="time">' . date("H:i", $dateTime) . '</span> <span class="status">Vælg tid</span>
-			</a>
-			';
-		}
-	?>
-</div>
+<?php echo $this->element("time_selector", ["date_time" => date("Y-m-d", $date)]); ?>
 
 <?php echo $this->Form->create('booking', ['class' => 'form']); ?>
 
 	<h1>Oplysninger:</h1>
 
-	<input type="hidden" name="data[Booking][date_time]" class="form-control" id="date-time">
+	<?php echo $this->Form->input("date_time", ["type" => "hidden", "id" => "date-time"]); ?>
+	<?php echo $this->Form->input("booking_type_id", ["type" => "hidden",  "value" => $bookingType, "id" => "BookingBookingTypeId"]); ?>
 
 	<div class="form-group">
-		<label for="exampleInputEmail1">Navn</label>
-		<input type="text" name="data[Booking][name]" class="form-control" id="exampleInputEmail1" placeholder="name">
+		<?php echo $this->Form->input("name", ["class" => "form-control", "placeholder" => "Name"]); ?>
 	</div>
 
 	<div class="form-group">
-		<label for="exampleInputEmail1">Telefon nummer</label>
-		<input type="text" name="data[Booking][phone]" class="form-control" id="exampleInputEmail1" placeholder="phone">
+		<?php echo $this->Form->input("phone", ["class" => "form-control", "placeholder" => "Phonenumber"]); ?>
 	</div>
 
 	<div class="form-group">
-		<label for="exampleInputEmail1">Email addresse</label>
-		<input type="email" name="data[Booking][email]" class="form-control" id="exampleInputEmail1" placeholder="Email">
+		<?php echo $this->Form->input("email", ["class" => "form-control", "placeholder" => "E-mail"]); ?>
 	</div>
 
 	<div class="form-group">

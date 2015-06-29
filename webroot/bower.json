@@ -4,6 +4,7 @@
 	"dependencies": {
 		"jquery":null,
 		"jqueryui":null,
-		"fancybox":null
+		"fancybox":null,
+		"handlebars":null
 	}
 }

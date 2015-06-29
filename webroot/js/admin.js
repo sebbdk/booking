@@ -2,7 +2,7 @@
 * @Author: sebb
 * @Date:   2015-01-08 19:35:28
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-06-24 17:30:44
+* @Last Modified time: 2015-06-29 16:35:47
 */
 
 (function($) {
@@ -13,28 +13,20 @@
 	var y = date.getFullYear();
 
 	var choosenDate = null;
+	var activeBookingType = null;
 	
 	$(document).on("ready", init);
 	$(document).on("click", ".choose-time-btn", next);
 	$(document).on("click", ".toggle-day", toggleOpen);
-	$(document).on("click", ".times .item.availeble", chooseTime);
-
-	function chooseTime(evt) {
-		evt.preventDefault();
-		$(".item.selected").removeClass("selected");
-		$(this).addClass("selected");
-
-		var date = new Date(parseInt($(this).attr("date-time")) * 1000);
-
-		$("#date-time").val( new Date( date ).toMysqlFormat() );
-
-		$(".form").show();
-	}
 
 	function init() {
 		$calender = $("#calendar");
 
-		$.get(window.appInfo.basepath + "/index.json", function(data) {
+		if($calender.length == 0) {
+			return;
+		}
+
+		$.get(window.appInfo.basepath + "admin/bookings.json", function(data) {
 			var events = [];
 
 			$.each(data.data, function(index, item) {
@@ -50,7 +42,7 @@
 
 			$calender.fullCalendar({
 				dayRender: function (date, element, view) {
-					console.log(date.unix() * 1000 - (1000 * 60 * 60* 2));
+					//console.log(date.unix() * 1000 - (1000 * 60 * 60* 2));
 
 					//var check = $.fullCalendar.formatDate(date,'yyyy-MM-dd');
 					//var today = $.fullCalendar.formatDate(new Date(),'yyyy-MM-dd');
@@ -66,7 +58,7 @@
 					$(".choose-time-btn, .toggle-day").removeAttr("disabled");
 				},
 				eventClick:function(calEvent, jsEvent, view) {
-					document.location.href = window.appInfo.basepath + "/edit/" + calEvent.id;
+					document.location.href = window.appInfo.basepath + "admin/bookings/edit/" + calEvent.id;
 				},
 				header: {
 					left: "title prev,next today",
@@ -77,9 +69,23 @@
 				events:events
 			});
 
-	        var custom_buttons = '<button class="toggle-day btn btn-default" disabled>Toggle open day</button>';
-	        custom_buttons += ' <button class="choose-time-btn btn btn-default btn-primary" disabled>Book on choosen day</button>';
-	        $(".fc-right").append(custom_buttons);
+			$.get( window.appInfo.basepath + "admin/booking_types.json", function(data) {
+				if(data.data.length == 0) {
+					return;
+				}
+
+				var options = "";
+				$.each(data.data, function(index, value) {
+					options += '<option value="' + value.BookingType.id + '">' + value.BookingType.name + '</option>';
+				});
+
+				activeBookingType = data.data[0].BookingType.id;
+
+		        var custom_buttons = '<button class="toggle-day btn btn-default" disabled>Toggle open day</button>';
+		        custom_buttons += '<select id="booking-type-id"><option readonly>Choose booking type</option> ' + options + '</select>';
+		        custom_buttons += ' <button class="choose-time-btn btn btn-default btn-primary" disabled>Book on choosen day</button>';
+		        $(".fc-right").append(custom_buttons);
+			});
 		});
 	};
 
@@ -105,7 +111,12 @@
 
 	function next(evt) {
 		if(!$(this).attr("disabled")) {
-			document.location.href = window.appInfo.basepath + "/add/" + (choosenDate.getTime()/1000);
+			if($("#booking-type-id").val() == "Choose booking type") {
+				alert("Please select a booking type");
+				return;
+			}
+
+			document.location.href = window.appInfo.basepath + "admin/bookings/add/" + (choosenDate.getTime()/1000) + "/" + $("#booking-type-id").val();
 		}
 	}
 

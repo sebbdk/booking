@@ -3,14 +3,16 @@
  * @Author: sebb
  * @Date:   2015-06-22 17:10:56
  * @Last Modified by:   sebb
- * @Last Modified time: 2015-06-24 16:14:12
+ * @Last Modified time: 2015-06-29 16:32:44
  */
 App::uses('AppController', 'Controller');
 
 class BookingsController extends AppController {
 	
 	public $paginate = [
-		'order' => 'date_time asc'
+		'order' => 'date_time asc',
+		'limit' => 1000,
+		'maxLimit' => 1000
 	];
 
 	public function beforeFilter() {
@@ -23,13 +25,29 @@ class BookingsController extends AppController {
 		});
 	}
 
-	public function add($date) {
+	public function index($type) {
+		$this->set("bookingType", $type);
+		$this->Crud->execute("index");
+	}
+
+	public function add($date, $type) {
 		$this->set("date", $date);
+		$this->set("bookingType", $type);
 		$this->Crud->execute("add");
 	}
 
-	public function admin_add($date) {
-		$this->add($date);
+	public function admin_edit($id) {
+
+		$booking = $this->Booking->read(null, $id);
+
+		$date = strtotime($booking["Booking"]["date_time"]);
+		$this->set("date", $date);
+		
+		$this->Crud->execute("edit");
+	}
+
+	public function admin_add($date, $type) {
+		$this->add($date, $type);
 	}
 
 	public function thanks() {}

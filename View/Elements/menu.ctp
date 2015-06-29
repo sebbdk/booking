@@ -9,6 +9,10 @@
         [
             "label" => "Bookings",
             "url" => ["prefix" => "admin", "controller" => "bookings", "action" => "index"],
+        ],
+        [
+            "label" => "Booking Types",
+            "url" => ["prefix" => "admin", "controller" => "booking_types", "action" => "index"],
         ]
     ];
 ?>

@@ -42,3 +42,15 @@ body {
 		@extend .alert-success;
 	}
 }
+
+h3 {
+	margin: 0;
+	padding: 0;
+}
+
+select {
+	@extend .btn;
+	height: 30px;
+	line-height: 15px;
+	 -webkit-appearance: none;
+}

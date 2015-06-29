@@ -10,5 +10,6 @@
 
 <hr />
 
+<input type="hidden" value="<?php echo $bookingType; ?>" id="booking-type-id" >
 
 <div id='calendar'></div>
