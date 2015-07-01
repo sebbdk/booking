@@ -18,11 +18,10 @@
 <br />
 <?php
 	echo $this->Html->link(
-	    'Slet booking',
+	    'Delete booking',
 	    ['controller' => 'bookings', 'action' => 'delete', $booking["Booking"]["id"]],
 	    [
-	    	'confirm' => 'Er du sikker på du vil slette din booking?',
-	    	'class' => 'btn btn-danger'
+	    	'class' => 'btn btn-danger delete-link'
 	    ]
 	);
 ?>

@@ -2,7 +2,7 @@
 * @Author: sebb
 * @Date:   2015-01-08 19:35:28
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-07-01 19:51:57
+* @Last Modified time: 2015-07-01 19:55:24
 */
 
 (function($) {
@@ -28,10 +28,9 @@
 				url: $(this).attr("href") + ".json",
 				method:"delete"
 			}).done(function(response) {
-				window.location.href = window.appInfo.basepath + "admin/bookings";
+				window.location.href = window.appInfo.basepath;
 			});
 		}
-
 	}
 
 	function init() {
