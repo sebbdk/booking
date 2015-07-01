@@ -2,7 +2,13 @@
 * @Author: sebb
 * @Date:   2015-01-08 19:35:28
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-06-29 16:42:01
+* @Last Modified time: 2015-07-01 19:00:50
+*
+*
+*
+*  IMPORTANT THE FRONTEND USES A DIFFERENT VERSIONS OF FullCalender then the backend for time saving purposes
+*
+* 
 */
 
 (function($) {
@@ -20,22 +26,48 @@
 	function init() {
 		$calender = $("#calendar");
 
-		$calender.fullCalendar({
-			dayClick:function(arg) {
-				$calender.fullCalendar("select", arg);
-				choosenDate = arg;
-				$(".choose-time-btn").removeAttr("disabled");
-			},
-			header: {
-				left: "title prev,next today",
-				center: "",
-				right: ""
-			},
-			editable: true
-		});
+		$.get(window.appInfo.basepath + "admin/open_times.json", function(openDaysData) {
+			var events = [];
 
-        var custom_buttons = '<button class="choose-time-btn btn btn-default btn-primary" disabled>Book på valgte dag</button>';
-        $(".fc-header-right").append(custom_buttons);
+			$.each(openDaysData.data, function(index, item) {
+				events.push({
+					title: "Åben",
+					start: item["OpenTime"].start,
+					color: "#66dd66",
+					id: item["OpenTime"].id
+				})
+			});
+
+			$calender.fullCalendar({
+				dayClick:function(arg) {
+					var allowChoose = false;
+
+					$.each($calender.fullCalendar('clientEvents'), function(index, item) {
+						if(item.start.getTime() == arg.getTime()) {
+							allowChoose = true;
+						}
+					});
+
+					if(!allowChoose) {
+						return;
+					}
+
+					$calender.fullCalendar("select", arg);
+					choosenDate = arg;
+					$(".choose-time-btn").removeAttr("disabled");
+				},
+				header: {
+					left: "title prev,next today",
+					center: "",
+					right: ""
+				},
+				editable: true,
+				events:events
+			});
+
+	        var custom_buttons = '<button class="choose-time-btn btn btn-default btn-primary" disabled>Book på valgte dag</button>';
+	        $(".fc-header-right").append(custom_buttons);
+	    });
 	};
 
 	function next(evt) {

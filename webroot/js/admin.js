@@ -2,7 +2,7 @@
 * @Author: sebb
 * @Date:   2015-01-08 19:35:28
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-06-29 16:35:47
+* @Last Modified time: 2015-07-01 18:50:36
 */
 
 (function($) {
@@ -27,64 +27,69 @@
 		}
 
 		$.get(window.appInfo.basepath + "admin/bookings.json", function(data) {
-			var events = [];
+			$.get(window.appInfo.basepath + "admin/open_times.json", function(openDaysData) {
+				var events = [];
 
-			$.each(data.data, function(index, item) {
-				var color = item["BookingType"].color ? item["BookingType"].color:'#378006';
+				$.each(data.data, function(index, item) {
+					var color = item["BookingType"].color ? item["BookingType"].color:'#378006';
 
-				events.push({
-					title: item["BookingType"].confirmed ? item["BookingType"].name:"Ny",
-					start: item["Booking"].date_time,
-					color: color,
-					id: item["Booking"].id
-				})
-			});
-
-			$calender.fullCalendar({
-				dayRender: function (date, element, view) {
-					//console.log(date.unix() * 1000 - (1000 * 60 * 60* 2));
-
-					//var check = $.fullCalendar.formatDate(date,'yyyy-MM-dd');
-					//var today = $.fullCalendar.formatDate(new Date(),'yyyy-MM-dd');
-					//if (check < today) {
-					//	element.css("background-color", "red");
-					//}
-				},
-				dayClick:function(arg) {
-					$calender.fullCalendar("select", arg);
-
-					choosenDate = new Date(arg.unix() * 1000 - (1000 * 60 * 60* 2));
-
-					$(".choose-time-btn, .toggle-day").removeAttr("disabled");
-				},
-				eventClick:function(calEvent, jsEvent, view) {
-					document.location.href = window.appInfo.basepath + "admin/bookings/edit/" + calEvent.id;
-				},
-				header: {
-					left: "title prev,next today",
-					center: "",
-					right: ""
-				},
-				editable: true,
-				events:events
-			});
-
-			$.get( window.appInfo.basepath + "admin/booking_types.json", function(data) {
-				if(data.data.length == 0) {
-					return;
-				}
-
-				var options = "";
-				$.each(data.data, function(index, value) {
-					options += '<option value="' + value.BookingType.id + '">' + value.BookingType.name + '</option>';
+					events.push({
+						title: item["BookingType"].confirmed ? item["BookingType"].name:"Ny",
+						start: item["Booking"].date_time,
+						color: color,
+						id: item["Booking"].id
+					})
 				});
 
-				activeBookingType = data.data[0].BookingType.id;
+				$.each(openDaysData.data, function(index, item) {
+					events.push({
+						title: "Open",
+						start: item["OpenTime"].start,
+						color: "#66dd66",
+						id: item["OpenTime"].id
+					})
+				});
 
-		        var custom_buttons = '<button class="toggle-day btn btn-default" disabled>Toggle open day</button>';
-		        custom_buttons += '<select id="booking-type-id"><option readonly>Choose booking type</option> ' + options + '</select>';
-		        custom_buttons += ' <button class="choose-time-btn btn btn-default btn-primary" disabled>Book on choosen day</button>';
-		        $(".fc-right").append(custom_buttons);
+				$calender.fullCalendar({
+					dayClick:function(arg) {
+						$calender.fullCalendar("select", arg);
+
+						choosenDate = new Date(arg.unix() * 1000 - (1000 * 60 * 60* 2));
+
+						$(".choose-time-btn, .toggle-day").removeAttr("disabled");
+					},
+					eventClick:function(calEvent, jsEvent, view) {
+						if(calEvent.title != "Open") {
+							document.location.href = window.appInfo.basepath + "admin/bookings/edit/" + calEvent.id;
+						}
+					},
+					header: {
+						left: "title prev,next today",
+						center: "",
+						right: ""
+					},
+					editable: true,
+					events:events,
+					timezone:false
+				});
+
+				$.get( window.appInfo.basepath + "admin/booking_types.json", function(data) {
+					if(data.data.length == 0) {
+						return;
+					}
+
+					var options = "";
+					$.each(data.data, function(index, value) {
+						options += '<option value="' + value.BookingType.id + '">' + value.BookingType.name + '</option>';
+					});
+
+					activeBookingType = data.data[0].BookingType.id;
+
+			        var custom_buttons = '<button class="toggle-day btn btn-default" disabled>Toggle open day</button>';
+			        custom_buttons += '<select id="booking-type-id"><option readonly>Choose booking type</option> ' + options + '</select>';
+			        custom_buttons += ' <button class="choose-time-btn btn btn-default btn-primary" disabled>Book on choosen day</button>';
+			        $(".fc-right").append(custom_buttons);
+				});
 			});
 		});
 	};
@@ -92,7 +97,24 @@
 	function toggleOpen(evt) {
 		if(!$(this).attr("disabled")) {
 
-			//TO BE CONTINUED!
+			var isRemove = false;
+
+			$.each($calender.fullCalendar('clientEvents'), function(index, item) {
+				var d = new Date( item.start.unix() * 1000 - (1000 * 60 * 60* 2) );
+				if(d.getTime() == choosenDate.getTime()) {
+					$calender.fullCalendar( 'removeEvents', item.id );
+					isRemove = true;
+
+					$.ajax({
+						url: window.appInfo.basepath + "admin/open_times/delete/" + item.id + ".json",
+						method:"delete"
+					});
+				}
+			});
+
+			if(isRemove) {
+				return;
+			}
 
 			var data = {
 				data:{
@@ -103,9 +125,21 @@
 				}
 			}
 
-			$.post('', function() {
+			$.post(window.appInfo.basepath + "admin/open_times/add.json", data, function(result) {
 
-			})
+				if(result.success) {
+					$calender.fullCalendar( 'renderEvent', {
+						id:result.data.id,
+						allDay:true,
+						title:"Open",
+						color:"#66dd66",
+						start:choosenDate
+					}, true);
+				} else {
+					alert("An error occured, please try again");
+				}
+
+			});
 		}
 	}
 
