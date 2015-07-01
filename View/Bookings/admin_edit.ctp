@@ -28,7 +28,18 @@
 	</div>
 
 	<div class="form-group">
-		<button type="submit" class="btn btn-default">Save resevation</button>
+		<button type="submit" class="btn btn-default">Save booking</button>
+
+		<?php
+			echo $this->Html->link(
+			    'Delete booking',
+			    ['controller' => 'bookings', 'action' => 'delete', $this->data["Booking"]["id"]],
+			    [
+			    	'class' => 'btn btn-danger delete-link'
+			    ]
+			);
+		?>
+
 	</div>
 
 <?php echo $this->Form->end(); ?>

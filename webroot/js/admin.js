@@ -2,7 +2,7 @@
 * @Author: sebb
 * @Date:   2015-01-08 19:35:28
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-07-01 18:50:36
+* @Last Modified time: 2015-07-01 19:51:57
 */
 
 (function($) {
@@ -18,6 +18,21 @@
 	$(document).on("ready", init);
 	$(document).on("click", ".choose-time-btn", next);
 	$(document).on("click", ".toggle-day", toggleOpen);
+	$(document).on("click", ".delete-link", deleteBooking);
+
+	function deleteBooking(evt) {
+		evt.preventDefault();
+
+		if(confirm("Are you sure you would like to delete this booking?")) {
+			$.ajax({
+				url: $(this).attr("href") + ".json",
+				method:"delete"
+			}).done(function(response) {
+				window.location.href = window.appInfo.basepath + "admin/bookings";
+			});
+		}
+
+	}
 
 	function init() {
 		$calender = $("#calendar");
