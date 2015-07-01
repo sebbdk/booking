@@ -21,4 +21,7 @@ App::uses('Model', 'Model');
  * @package       app.Model
  */
 class AppModel extends Model {
+
+	public $actsAs = array('Assets.AssetFile');
+
 }

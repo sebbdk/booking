@@ -8051,11 +8051,12 @@ h2 {
   padding: 3px 10px;
 }
 
-/* line 59, ../sass/_elements.scss */
+/* line 60, ../sass/_elements.scss */
 .booking-container img {
   width: 100%;
+  margin-top: 15px;
 }
-/* line 63, ../sass/_elements.scss */
+/* line 65, ../sass/_elements.scss */
 .booking-container .col-md-6 {
   margin-top: 15px;
   text-align: center;

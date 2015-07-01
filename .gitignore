@@ -1,3 +1,4 @@
 .DS_Store
 Config/database.php
 tmp/*
+webroot/files
