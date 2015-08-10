@@ -3,7 +3,7 @@
  * @Author: sebb
  * @Date:   2015-06-22 17:10:56
  * @Last Modified by:   sebb
- * @Last Modified time: 2015-08-10 17:48:22
+ * @Last Modified time: 2015-08-10 17:59:09
  */
 App::uses('AppController', 'Controller');
 
@@ -19,9 +19,9 @@ class BookingsController extends AppController {
 		parent::beforeFilter();
 
 		$this->Crud->on('afterSave', function(CakeEvent $event) {
-		    if ($event->subject->created && $event->subject->controller->request->prefix != "admin") {
-		    	$event->subject->controller->redirect(['action' => 'thanks']);
-		    }
+			if ($event->subject->created && $event->subject->controller->request->prefix != "admin") {
+				$event->subject->controller->redirect(['action' => 'thanks']);
+			}
 		});
 	}
 
