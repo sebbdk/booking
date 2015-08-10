@@ -2,7 +2,7 @@
 * @Author: sebb
 * @Date:   2015-01-08 19:35:28
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-07-01 19:55:33
+* @Last Modified time: 2015-08-10 17:46:46
 *
 *
 *
@@ -41,8 +41,10 @@
 	function init() {
 		$calender = $("#calendar");
 
-		$.get(window.appInfo.basepath + "admin/open_times.json", function(openDaysData) {
+		$.get(window.appInfo.basepath + "/open_times.json", function(openDaysData) {
 			var events = [];
+
+			console.log(openDaysData)
 
 			$.each(openDaysData.data, function(index, item) {
 				events.push({

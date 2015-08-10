@@ -2,7 +2,7 @@
 * @Author: sebb
 * @Date:   2015-01-08 19:35:28
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-07-01 19:55:24
+* @Last Modified time: 2015-08-10 17:55:01
 */
 
 (function($) {
@@ -47,8 +47,9 @@
 				$.each(data.data, function(index, item) {
 					var color = item["BookingType"].color ? item["BookingType"].color:'#378006';
 
+					console.log(item["Booking"]);
 					events.push({
-						title: item["BookingType"].confirmed ? item["BookingType"].name:"Ny",
+						title: item["Booking"].confirmed ? item["BookingType"].name:"Ny",
 						start: item["Booking"].date_time,
 						color: color,
 						id: item["Booking"].id

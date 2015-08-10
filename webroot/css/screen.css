@@ -7924,49 +7924,76 @@ button.close {
   border-top: 1px solid #ccc;
   margin-top: 15px;
   line-height: 42px;
+  height: 200px;
+  overflow-y: scroll;
 }
-/* line 17, ../sass/_calender.scss */
+/* line 19, ../sass/_calender.scss */
+.times::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+/* line 23, ../sass/_calender.scss */
+.times::-webkit-scrollbar:vertical {
+  width: 11px;
+}
+/* line 27, ../sass/_calender.scss */
+.times::-webkit-scrollbar:horizontal {
+  height: 11px;
+}
+/* line 31, ../sass/_calender.scss */
+.times::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 2px solid #EEE;
+  /* should match background, can't be transparent */
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* line 37, ../sass/_calender.scss */
+.times::-webkit-scrollbar-track {
+  background-color: #fff;
+  border-radius: 8px;
+  background-color: #EEE;
+}
+/* line 43, ../sass/_calender.scss */
 .times .item {
   padding: 0 10px;
   display: block;
   opacity: 0.2;
 }
-/* line 22, ../sass/_calender.scss */
+/* line 48, ../sass/_calender.scss */
 .times .item .time {
   color: #666;
 }
-/* line 26, ../sass/_calender.scss */
+/* line 52, ../sass/_calender.scss */
 .times .item:nth-child(even) {
   background-color: #CCC;
 }
-/* line 30, ../sass/_calender.scss */
+/* line 56, ../sass/_calender.scss */
 .times .item.availeble {
   opacity: 1;
 }
-/* line 34, ../sass/_calender.scss */
+/* line 60, ../sass/_calender.scss */
 .times .item.selected {
   background-color: #e9a825;
 }
-/* line 37, ../sass/_calender.scss */
+/* line 63, ../sass/_calender.scss */
 .times .item.selected:nth-child(even) {
   background-color: #e9a825;
 }
-/* line 42, ../sass/_calender.scss */
+/* line 68, ../sass/_calender.scss */
 .times .item:hover {
   text-decoration: none;
 }
-/* line 45, ../sass/_calender.scss */
+/* line 71, ../sass/_calender.scss */
 .times .item:hover .status {
   text-decoration: underline;
 }
 
-/* line 52, ../sass/_calender.scss */
+/* line 78, ../sass/_calender.scss */
 .form {
   margin-top: 15px;
   display: none;
 }
 
-/* line 57, ../sass/_calender.scss */
+/* line 83, ../sass/_calender.scss */
 .input.checkbox {
   padding: 0;
   margin-top: 25px;
@@ -7974,11 +8001,11 @@ button.close {
   height: 34px;
   line-height: 32px;
 }
-/* line 69, ../sass/_calender.scss */
+/* line 95, ../sass/_calender.scss */
 .input.checkbox label {
   padding-left: 10px;
 }
-/* line 73, ../sass/_calender.scss */
+/* line 99, ../sass/_calender.scss */
 .input.checkbox input[type="checkbox"] {
   float: left;
   margin-top: 0px;

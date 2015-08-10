@@ -2,7 +2,7 @@
 
 <?php echo $this->element("time_selector", ["date_time" => date("Y-m-d", $date)]); ?>
 
-<?php echo $this->Form->create('booking', ['class' => 'form']); ?>
+<?php echo $this->Form->create('Booking', ['class' => 'form']); ?>
 
 	<h1>Oplysninger:</h1>
 

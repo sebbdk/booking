@@ -2,7 +2,7 @@
 * @Author: sebb
 * @Date:   2015-06-29 13:31:47
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-06-29 16:50:15
+* @Last Modified time: 2015-08-10 17:48:59
 */
 (function($) {
 
@@ -24,10 +24,10 @@
 	}
 
 	function load() {
-		$.get(window.appInfo.basepath + "admin/booking_types/view/" + $("#BookingBookingTypeId").val() + ".json", function(bookingType) {
+		$.get(window.appInfo.basepath + "/booking_types/view/" + $("#BookingBookingTypeId").val() + ".json", function(bookingType) {
 			timeLength = bookingType.data.BookingType.length;
 
-			$.get(window.appInfo.basepath + "admin/bookings.json", function(bookings) {
+			$.get(window.appInfo.basepath + "bookings/index/" + $("#BookingBookingTypeId").val() + ".json", function(bookings) {
 				render(bookings.data);
 			});
 		});
