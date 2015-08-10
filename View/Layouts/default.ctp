@@ -27,16 +27,16 @@
 <body>
 	<div class="container">
 
-		<div class="header">
-			<div class="header-info">
+		<div class="container-fluid">
+			<?= $this->fetch('content'); ?>   
+		</div>
+
+		<div class="footer">
+			<div class="footer-info">
 				Kontakt: <a href="tel:+4540521604">+45 40521604</a>
 				<span class="sep"> | </span>
 				<a href="mailto:bb@fitnessconsulting.dk">bb@fitnessconsulting.dk</a>
 			</div>
-		</div>
-
-		<div class="container-fluid">
-			<?= $this->fetch('content'); ?>   
 		</div>
 
 	</div>

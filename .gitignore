@@ -2,3 +2,4 @@
 Config/database.php
 tmp/*
 webroot/files
+.sass-cache

@@ -13,7 +13,6 @@ body {
 	max-width: 1000px;
 	background-color: #FFF;
 	padding: 0;
-	padding-bottom: 15px;
 }
 
 h2 {
@@ -25,12 +24,14 @@ h2 {
 	margin: 0 auto;
 }
 
-.header {
-	background-color: #e9a825 !important;
+.footer {
+	//background-color: #e9a825 !important;
+	background-color: #333 !important;
 	height: 43px;
+	margin-top: 15px;
 }
 
-.header-info {
+.footer-info {
 	color: #FFF;
 	font-size: 12px;
 	line-height: 43px;

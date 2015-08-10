@@ -8032,58 +8032,58 @@ body {
   max-width: 1000px;
   background-color: #FFF;
   padding: 0;
-  padding-bottom: 15px;
 }
 
-/* line 19, ../sass/_elements.scss */
+/* line 18, ../sass/_elements.scss */
 h2 {
   margin: 15px 0;
 }
 
-/* line 23, ../sass/_elements.scss */
+/* line 22, ../sass/_elements.scss */
 #calendar {
   width: 100%;
   margin: 0 auto;
 }
 
-/* line 28, ../sass/_elements.scss */
-.header {
-  background-color: #e9a825 !important;
+/* line 27, ../sass/_elements.scss */
+.footer {
+  background-color: #333 !important;
   height: 43px;
+  margin-top: 15px;
 }
 
-/* line 33, ../sass/_elements.scss */
-.header-info {
+/* line 34, ../sass/_elements.scss */
+.footer-info {
   color: #FFF;
   font-size: 12px;
   line-height: 43px;
   padding: 0 20px;
   font-family: 'PTSansRegular', Arial, Helvetica, sans-serif;
 }
-/* line 41, ../sass/_elements.scss */
-.header-info a, .header-info span {
+/* line 42, ../sass/_elements.scss */
+.footer-info a, .footer-info span {
   color: #FFF;
 }
 
-/* line 47, ../sass/_elements.scss */
+/* line 48, ../sass/_elements.scss */
 .fc-cell-overlay {
   background: #e9a825;
   opacity: .8;
   filter: alpha(opacity=80);
 }
 
-/* line 53, ../sass/_elements.scss */
+/* line 54, ../sass/_elements.scss */
 .choose-time-btn {
   margin-left: 10px;
   padding: 3px 10px;
 }
 
-/* line 60, ../sass/_elements.scss */
+/* line 61, ../sass/_elements.scss */
 .booking-container img {
   width: 100%;
   margin-top: 15px;
 }
-/* line 65, ../sass/_elements.scss */
+/* line 66, ../sass/_elements.scss */
 .booking-container .col-md-6 {
   margin-top: 15px;
   text-align: center;
