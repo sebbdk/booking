@@ -2,8 +2,8 @@ installation instructions:
 
 	1) Copy Config/database.default.php to Config/database.php and configure it with your database settings.
 	2) Run the sql_dump.sql in you database.
-	3) profit! :)
-
+	3) Log into /admin and change the password of the 2 users there.
+	4) profit?!
 
 Other notes.
 
