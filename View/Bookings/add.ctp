@@ -1,4 +1,6 @@
-<h1>Vælg tidspunkt</h1>
+<?php echo $this->Html->image("logo.png", ["class" => "logo-image"]); ?>
+
+<h2>Vælg tidspunkt</h2>
 
 <?php echo $this->element("time_selector", ["date_time" => date("Y-m-d", $date)]); ?>
 

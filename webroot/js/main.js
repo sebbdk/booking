@@ -2,7 +2,7 @@
 * @Author: sebb
 * @Date:   2015-01-08 19:35:28
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-08-10 17:46:46
+* @Last Modified time: 2015-08-24 18:22:53
 *
 *
 *
@@ -82,7 +82,7 @@
 				events:events
 			});
 
-	        var custom_buttons = '<button class="choose-time-btn btn btn-default btn-primary" disabled>Book på valgte dag</button>';
+	        var custom_buttons = '<button class="choose-time-btn btn btn-default btn-primary" disabled>Videre</button>';
 	        $(".fc-header-right").append(custom_buttons);
 	    });
 	};

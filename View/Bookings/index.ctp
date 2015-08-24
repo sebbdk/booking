@@ -1,12 +1,6 @@
-<h2>
-	Vælg en tid
-</h2>
+<?php echo $this->Html->image("logo.png", ["class" => "logo-image"]); ?>
 
-<p>
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-</p>
+<h2>Vælg dagen, og tryk videre</h2>
 
 <hr />
 

@@ -1,9 +1,10 @@
 <div class="row booking-container">
 
 	<div class="col-md-12">
-		<h2>Vælg din booking type</h2>
 
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
+		<?php echo $this->Html->image("logo.png", ["class" => "logo-image"]); ?>
+
+		<h2>Vælg din booking type her under:</h2>
 	</div>
 
 	<?php foreach ($bookingTypes as $booking): ?>

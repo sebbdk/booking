@@ -35,6 +35,14 @@
 			</div>
 
 			<div class="form-group col-md-6">
+				<?php echo $this->Form->input('price', array('class' => 'form-control', 'placeholder' => 'Price'));?>
+			</div>
+
+			<div class="form-group col-md-6">
+				<?php echo $this->Form->input('mobile_pay_number', array('class' => 'form-control', 'placeholder' => 'Mobile pay phone number'));?>
+			</div>
+
+			<div class="form-group col-md-6">
 				<?php echo $this->element("Assets.asset_file_uploader", ["field" => "asset_file"]); ?>
 			</div>
 

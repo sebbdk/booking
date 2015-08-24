@@ -2,10 +2,10 @@
     $currentUrl = Router::url();
 
     $links = [
-   //     [
-    //        "label" => "Users",
-   //         "url" => ["prefix" => "admin", "controller" => "users", "action" => "index"],
-   //     ],
+        [
+            "label" => "Users",
+            "url" => ["prefix" => "admin", "controller" => "users", "action" => "index"],
+        ],
         [
             "label" => "Bookings",
             "url" => ["prefix" => "admin", "controller" => "bookings", "action" => "index"],
@@ -13,7 +13,11 @@
         [
             "label" => "Booking Types",
             "url" => ["prefix" => "admin", "controller" => "booking_types", "action" => "index"],
-        ]
+        ],
+        [
+            "label" => "Logout",
+            "url" => ["prefix" => "admin", "controller" => "users", "action" => "logout"],
+        ],
     ];
 ?>
 

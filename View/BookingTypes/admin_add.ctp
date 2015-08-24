@@ -30,8 +30,17 @@
 			<div class="form-group col-md-6">
 				<?php echo $this->Form->input('name', array('class' => 'form-control', 'placeholder' => 'Title'));?>
 			</div>
+
 			<div class="form-group col-md-6">
 				<?php echo $this->Form->input('length', array('options' =>  $options, 'class' => 'form-control', 'disabled'));?>
+			</div>
+
+			<div class="form-group col-md-6">
+				<?php echo $this->Form->input('price', array('class' => 'form-control', 'placeholder' => 'Price'));?>
+			</div>
+
+			<div class="form-group col-md-6">
+				<?php echo $this->Form->input('mobile_pay_number', array('class' => 'form-control', 'placeholder' => 'Mobile pay phone number'));?>
 			</div>
 
 			<div class="form-group col-md-6">
