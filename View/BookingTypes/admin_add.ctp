@@ -32,7 +32,7 @@
 			</div>
 
 			<div class="form-group col-md-6">
-				<?php echo $this->Form->input('length', array('options' =>  $options, 'class' => 'form-control', 'disabled'));?>
+				<?php echo $this->Form->input('length', array('options' =>  $options, 'class' => 'form-control'));?>
 			</div>
 
 			<div class="form-group col-md-6">
