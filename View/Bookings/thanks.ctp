@@ -1,6 +1,6 @@
 <center style="padding: 40px;">
 	
-	<?php echo $this->Html->image("logo.png", ["class" => "logo-image"]); ?>
+	<?php echo $this->Html->image("logo.png", ["url" => "/", "class" => "logo-image"]); ?>
 
 	<h1>Tak for din reservation!</h1>
 

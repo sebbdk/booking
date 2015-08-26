@@ -2,7 +2,7 @@
 
 	<div class="col-md-12">
 
-		<?php echo $this->Html->image("logo.png", ["class" => "logo-image"]); ?>
+		<?php echo $this->Html->image("logo.png", ["url" => "/", "class" => "logo-image"]); ?>
 
 		<h2>Vælg din booking type her under:</h2>
 	</div>

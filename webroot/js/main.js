@@ -1,8 +1,8 @@
 /* 
 * @Author: sebb
 * @Date:   2015-01-08 19:35:28
-* @Last Modified by:   sebb
-* @Last Modified time: 2015-08-24 18:22:53
+* @Last Modified by:   kasper
+* @Last Modified time: 2015-08-26 18:05:11
 *
 *
 *
@@ -38,13 +38,29 @@
 		}
 	}
 
+	function chooseDate(date) {
+		var allowChoose = false;
+
+		$.each($calender.fullCalendar('clientEvents'), function(index, item) {
+			if(item.start.getTime() == date.getTime()) {
+				allowChoose = true;
+			}
+		});
+
+		if(!allowChoose) {
+			return;
+		}
+
+		$calender.fullCalendar("select", date);
+		choosenDate = date;
+		$(".choose-time-btn").removeAttr("disabled");
+	}
+
 	function init() {
 		$calender = $("#calendar");
 
-		$.get(window.appInfo.basepath + "/open_times.json", function(openDaysData) {
+		$.get(window.appInfo.basepath + "open_times.json", function(openDaysData) {
 			var events = [];
-
-			console.log(openDaysData)
 
 			$.each(openDaysData.data, function(index, item) {
 				events.push({
@@ -56,22 +72,11 @@
 			});
 
 			$calender.fullCalendar({
+				eventClick:function(event, jsEvent, view) {
+					chooseDate(event.start)
+				},
 				dayClick:function(arg) {
-					var allowChoose = false;
-
-					$.each($calender.fullCalendar('clientEvents'), function(index, item) {
-						if(item.start.getTime() == arg.getTime()) {
-							allowChoose = true;
-						}
-					});
-
-					if(!allowChoose) {
-						return;
-					}
-
-					$calender.fullCalendar("select", arg);
-					choosenDate = arg;
-					$(".choose-time-btn").removeAttr("disabled");
+					chooseDate(arg)
 				},
 				header: {
 					left: "title prev,next today",

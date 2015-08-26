@@ -2,10 +2,10 @@
 /**
  * Description
  * 
- * Copyright 2012, Nodes.dk. All Rights Reserved.
+ * Copyright 2012, sebb.dk. All Rights Reserved.
  *
- * @author Kasper Jensen <kj@nodes.dk>
- * @created 02-14-2012 06:24 PM
+ * @author Kasper Jensen <kj@sebb.dk>
+ * @created 02-14-2014 06:24 PM
  */
 class AssetFilesController extends AppController {
 	
@@ -108,7 +108,7 @@ class AssetFilesController extends AppController {
 		
 		$assetFolder = WWW_ROOT.DS.'files/assets';
 		if(!is_dir($assetFolder)) {
-			mkdir($assetFolder);
+			mkdir($assetFolder, 0655, true);
 		}
 		
 		$this->AssetFile->ensureSizeFolder($id, $size);

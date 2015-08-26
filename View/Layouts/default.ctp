@@ -42,9 +42,8 @@
 	</div>
 
 	<script>
-		window.appInfo = <?php echo json_encode([
-			'basepath' => Router::url("/")
-		]); ?>;
+		window.appInfo = {};
+		window.appInfo.basepath = "<?php echo Router::url("/"); ?>";
 	</script>
 </body>
 </html>

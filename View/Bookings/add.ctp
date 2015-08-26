@@ -1,4 +1,4 @@
-<?php echo $this->Html->image("logo.png", ["class" => "logo-image"]); ?>
+<?php echo $this->Html->image("logo.png", ["url" => "/", "class" => "logo-image"]); ?>
 
 <h2>Vælg tidspunkt</h2>
 
