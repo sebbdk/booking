@@ -3,7 +3,7 @@
  * @Author: sebb
  * @Date:   2015-06-22 17:10:56
  * @Last Modified by:   sebb
- * @Last Modified time: 2015-08-24 18:34:21
+ * @Last Modified time: 2015-09-01 17:35:28
  */
 App::uses('AppController', 'Controller');
 
@@ -37,7 +37,6 @@ class BookingsController extends AppController {
 	}
 
 	public function admin_edit($id) {
-
 		$booking = $this->Booking->read(null, $id);
 
 		$date = strtotime($booking["Booking"]["date_time"]);

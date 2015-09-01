@@ -1,5 +1,7 @@
 <h1>Choose time</h1>
 
+	<p><b>Booking type:</b> <?php echo $this->data["BookingType"]["name"]; ?></p>
+
 <?php 
 	echo $this->element("time_selector", ["date_time" => $this->data["Booking"]["date_time"]]);
 	echo $this->Form->create('Booking', ['class' => 'form', 'style' => 'display: block;']); 

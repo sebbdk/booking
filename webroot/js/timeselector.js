@@ -1,8 +1,8 @@
 /* 
 * @Author: sebb
 * @Date:   2015-06-29 13:31:47
-* @Last Modified by:   kasper
-* @Last Modified time: 2015-08-25 15:07:48
+* @Last Modified by:   sebb
+* @Last Modified time: 2015-09-01 18:12:37
 */
 (function($) {
 
@@ -54,27 +54,34 @@
 		var itemTemplate = Handlebars.compile(source);
 
 		for(var c = 0; c < rows; c++) {
-			var date = new Date(
+			var startTime = new Date(
 				originalDate.getTime() + //add the date
 				(hour * c * timeLength) +  //add the incremental time
 				hour * 10 //times start at 10
 			);
 
+			var endTime = new Date(startTime.getTime() + hour * timeLength);
+
 			var taken = false;
 
 			$.each(bookings, function(index, value) {
-				var bd = new Date(value.Booking.date_time);
-				if(bd.getTime() ==  date.getTime()) {
+				var bookingStart = new Date(value.Booking.date_time);
+				var bookingEnd = new Date(bookingStart.getTime() + hour * value.BookingType.length);
+
+				var isWhile = startTime.getTime() >= bookingStart.getTime() &&
+								startTime.getTime() < bookingEnd.getTime();
+
+				if(isWhile) {
 					taken = true;
 				}
  			});
 			
-			var selected = (dateTime.getTime() == date.getTime());
-			var timeOfDay = ("0" + date.getHours()).slice(-2) + ":" + ("0" + date.getMinutes()).slice(-2)
+			var selected = (dateTime.getTime() == startTime.getTime());
+			var timeOfDay = ("0" + startTime.getHours()).slice(-2) + ":" + ("0" + startTime.getMinutes()).slice(-2)
 
 			$(".time-chooser").append(itemTemplate({
 				timeOfDay:timeOfDay,
-				timestamp:date.getTime(),
+				timestamp:startTime.getTime(),
 				selected:selected,
 				taken:taken && !selected,
 				notTaken:!taken || selected,
