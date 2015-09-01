@@ -2,7 +2,9 @@
 
 	<div class="col-md-12">
 
-		<?php echo $this->Html->image("logo.png", ["url" => "/", "class" => "logo-image"]); ?>
+		<?php echo $this->Html->image("logo.png", ["url" => "http://fitnessconsulting.dk", "class" => "logo-image"]); ?>
+
+		<p>Arbejdet udføres af Michael Hammer, Charlotte bøggild og Bettina Borg</p>
 
 		<h2>Vælg din booking type her under:</h2>
 	</div>

@@ -22,7 +22,7 @@
 		echo $this->fetch('script');
 	?>
 
-	<title>Admin</title>
+	<title>Fitness consulting - booking</title>
 </head>
 <body>
 	<div class="container">
