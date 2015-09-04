@@ -1,83 +1,46 @@
 <?php
-App::uses('AppModel', 'Model');
 /**
- * Booking Model
- *
- * @property BookingType $BookingType
+ * @Author: sebb
+ * @Date:   2015-09-04 16:37:10
+ * @Last Modified by:   sebb
+ * @Last Modified time: 2015-09-04 16:58:02
  */
+App::uses('AppModel', 'Model');
+App::uses('CakeEmail', 'Network/Email');
+
 class Booking extends AppModel {
 
-/**
- * Display field
- *
- * @var string
- */
 	public $displayField = 'name';
 
-/**
- * Validation rules
- *
- * @var array
- */
 	public $validate = array(
 		'booking_type_id' => array(
 			'uuid' => array(
-				'rule' => array('uuid'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'rule' => array('uuid')
 			),
 		),
 		'date' => array(
 			'datetime' => array(
-				'rule' => array('datetime'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'rule' => array('datetime')
 			),
 		),
 		'name' => array(
 			'notEmpty' => array(
-				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'rule' => array('notEmpty')
 			),
 		),
 		'email' => array(
 			'email' => array(
-				'rule' => array('email'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'rule' => array('email')
 			),
 		),
 		'phone' => array(
 			'notEmpty' => array(
-				'rule' => array('notEmpty'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'rule' => array('notEmpty')
 			),
 		),
 		'has_payed' => array(
 			'numeric' => array(
-				'rule' => array('numeric'),
-				//'message' => 'Your custom message here',
-				//'allowEmpty' => false,
-				//'required' => false,
-				//'last' => false, // Stop validation after this rule
-				//'on' => 'create', // Limit validation to 'create' or 'update' operations
+				'rule' => array('numeric')
 			),
 		),
 	);
@@ -98,4 +61,35 @@ class Booking extends AppModel {
 			'order' => ''
 		)
 	);
+
+	public $sendConfirmationEmail = false;
+
+	public function beforeSave($options = []) {
+		if(isset($this->data[$this->alias]['id'])) {
+			$current = $this->find('first', [ 'conditions' => ['Booking.id' => $this->data[$this->alias]['id']] ]);
+
+			if($current && $current[$this->alias]['confirmed'] == 0 && $this->data[$this->alias]['confirmed'] == 1) {
+				$this->sendConfirmationEmail = true;
+			}
+		}
+	}
+
+	public function afterSave($created, $options = []) {
+		if($this->sendConfirmationEmail) {
+			$current = $this->find('first', [ 'conditions' => ['Booking.id' => $this->data[$this->alias]['id']] ]);
+
+			$Email = new CakeEmail();
+			$Email->from(array('no-reply@fitnessconsulting.dk' => 'fitnessconsulting.dk'));
+			$Email->to( $this->data[$this->alias]['email'] );
+			$Email->subject('fitnessconsulting.dk booking bekræftelse');
+			$Email->send('Hej '. $this->data[$this->alias]['name'] .'
+
+Din booking er nu bekræftet.
+Hvis du vil ændre din tid eller andet kan du ringe til '.$current['BookingType']['mobile_pay_number'].'.
+
+Mvh,
+fitnessconsulting.dk
+');
+		}
+	}
 }
