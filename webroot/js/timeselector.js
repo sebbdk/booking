@@ -2,7 +2,7 @@
 * @Author: sebb
 * @Date:   2015-06-29 13:31:47
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-09-01 18:12:37
+* @Last Modified time: 2015-09-16 12:16:30
 */
 (function($) {
 
@@ -62,10 +62,10 @@
 
 			var endTime = new Date(startTime.getTime() + hour * timeLength);
 
+			//check if time is taken
 			var taken = false;
-
 			$.each(bookings, function(index, value) {
-				var bookingStart = new Date(value.Booking.date_time);
+				var bookingStart = new Date(value.Booking.date_time.replace(/-/ig, "/"));
 				var bookingEnd = new Date(bookingStart.getTime() + hour * value.BookingType.length);
 
 				var isWhile = startTime.getTime() >= bookingStart.getTime() &&
