@@ -2,7 +2,7 @@
 * @Author: sebb
 * @Date:   2015-06-29 13:31:47
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-09-16 12:16:30
+* @Last Modified time: 2015-09-16 16:11:50
 */
 (function($) {
 
@@ -24,9 +24,11 @@
 	}
 
 	function load() {
+		alert("load!");
 		$.get(window.appInfo.basepath + "booking_types/view/" + $("#BookingBookingTypeId").val() + ".json", function(bookingType) {
 			timeLength = bookingType.data.BookingType.length;
 
+			alert("bookings!!");
 			$.get(window.appInfo.basepath + "bookings/index/" + $("#BookingBookingTypeId").val() + ".json", function(bookings) {
 				render(bookings.data);
 			});
