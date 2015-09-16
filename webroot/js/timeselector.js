@@ -2,7 +2,7 @@
 * @Author: sebb
 * @Date:   2015-06-29 13:31:47
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-09-16 16:11:50
+* @Last Modified time: 2015-09-16 16:14:47
 */
 (function($) {
 
@@ -24,11 +24,8 @@
 	}
 
 	function load() {
-		alert("load!");
 		$.get(window.appInfo.basepath + "booking_types/view/" + $("#BookingBookingTypeId").val() + ".json", function(bookingType) {
 			timeLength = bookingType.data.BookingType.length;
-
-			alert("bookings!!");
 			$.get(window.appInfo.basepath + "bookings/index/" + $("#BookingBookingTypeId").val() + ".json", function(bookings) {
 				render(bookings.data);
 			});
@@ -36,6 +33,7 @@
 	}
 
 	function render(bookings) {
+		alert("render!!");
 		var dtime = $(".time-chooser").attr("data-selected");
 		if(dtime == "") {
 			dtime = new Date().getTime();
@@ -55,7 +53,9 @@
 		var source   = $("#time-item").html();
 		var itemTemplate = Handlebars.compile(source);
 
+		alert("template ready!");
 		for(var c = 0; c < rows; c++) {
+			alert("Loop!!");
 			var startTime = new Date(
 				originalDate.getTime() + //add the date
 				(hour * c * timeLength) +  //add the incremental time
