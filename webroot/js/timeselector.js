@@ -2,7 +2,7 @@
 * @Author: sebb
 * @Date:   2015-06-29 13:31:47
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-09-16 16:15:42
+* @Last Modified time: 2015-09-16 16:16:38
 */
 (function($) {
 
@@ -45,6 +45,9 @@
 		originalDate.setSeconds(0);
 
 		var dateTime = new Date( dtime );
+
+		alert(timeLength);
+		alert(Math.floor(8 / timeLength))
 
 		
 		var rows = Math.floor(8 / timeLength);
