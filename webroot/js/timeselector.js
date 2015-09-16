@@ -2,7 +2,7 @@
 * @Author: sebb
 * @Date:   2015-06-29 13:31:47
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-09-16 16:14:47
+* @Last Modified time: 2015-09-16 16:15:42
 */
 (function($) {
 
@@ -54,6 +54,7 @@
 		var itemTemplate = Handlebars.compile(source);
 
 		alert("template ready!");
+		alert(rows);
 		for(var c = 0; c < rows; c++) {
 			alert("Loop!!");
 			var startTime = new Date(
