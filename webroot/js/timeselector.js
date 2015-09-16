@@ -2,7 +2,7 @@
 * @Author: sebb
 * @Date:   2015-06-29 13:31:47
 * @Last Modified by:   sebb
-* @Last Modified time: 2015-09-16 16:16:38
+* @Last Modified time: 2015-09-16 16:17:20
 */
 (function($) {
 
@@ -27,12 +27,12 @@
 		$.get(window.appInfo.basepath + "booking_types/view/" + $("#BookingBookingTypeId").val() + ".json", function(bookingType) {
 			timeLength = bookingType.data.BookingType.length;
 			$.get(window.appInfo.basepath + "bookings/index/" + $("#BookingBookingTypeId").val() + ".json", function(bookings) {
-				render(bookings.data);
+				render(bookings.data, timeLength);
 			});
 		});
 	}
 
-	function render(bookings) {
+	function render(bookings, timeLength) {
 		alert("render!!");
 		var dtime = $(".time-chooser").attr("data-selected");
 		if(dtime == "") {
